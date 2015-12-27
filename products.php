@@ -37,9 +37,9 @@
 					<div class="account pull-right">
 						<ul class="user-menu">				
 							<li><a href="#">My Account</a></li>
-							<li><a href="cart.html">Your Cart</a></li>
-							<li><a href="checkout.html">Checkout</a></li>					
-							<li><a href="register.html">Login</a></li>			
+							<li><a href="cart.php">Your Cart</a></li>
+							<li><a href="checkout.php">Checkout</a></li>
+							<li><a href="register.php">Login</a></li>
 						</ul>
 					</div>
 				</div>
@@ -48,27 +48,27 @@
 		<div id="wrapper" class="container">
 			<section class="navbar main-menu">
 				<div class="navbar-inner main-menu">				
-					<a href="index.html" class="logo pull-left"><img src="themes/images/logo.png" class="site_logo" alt=""></a>
+					<a href="index.php" class="logo pull-left"><img src="themes/images/logo.png" class="site_logo" alt=""></a>
 					<nav id="menu" class="pull-right">
 						<ul>
-							<li><a href="./products.html">Woman</a>					
+							<li><a href="products.php">Woman</a>
 								<ul>
-									<li><a href="./products.html">Lacinia nibh</a></li>									
-									<li><a href="./products.html">Eget molestie</a></li>
-									<li><a href="./products.html">Varius purus</a></li>									
+									<li><a href="products.php">Lacinia nibh</a></li>
+									<li><a href="products.php">Eget molestie</a></li>
+									<li><a href="products.php">Varius purus</a></li>
 								</ul>
 							</li>															
-							<li><a href="./products.html">Man</a></li>			
-							<li><a href="./products.html">Sport</a>
+							<li><a href="products.php">Man</a></li>
+							<li><a href="products.php">Sport</a>
 								<ul>									
-									<li><a href="./products.html">Gifts and Tech</a></li>
-									<li><a href="./products.html">Ties and Hats</a></li>
-									<li><a href="./products.html">Cold Weather</a></li>
+									<li><a href="products.php">Gifts and Tech</a></li>
+									<li><a href="products.php">Ties and Hats</a></li>
+									<li><a href="products.php">Cold Weather</a></li>
 								</ul>
 							</li>							
-							<li><a href="./products.html">Hangbag</a></li>
-							<li><a href="./products.html">Best Seller</a></li>
-							<li><a href="./products.html">Top Seller</a></li>
+							<li><a href="products.php">Hangbag</a></li>
+							<li><a href="products.php">Best Seller</a></li>
+							<li><a href="products.php">Top Seller</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -85,16 +85,16 @@
 							<li class="span3">
 								<div class="product-box">
 									<span class="sale_tag"></span>												
-									<a href="product_detail.html"><img alt="" src="themes/images/ladies/9.jpg"></a><br/>
-									<a href="product_detail.html" class="title">Fusce id molestie massa</a><br/>
+									<a href="product_detail.php"><img alt="" src="themes/images/ladies/9.jpg"></a><br/>
+									<a href="product_detail.php" class="title">Fusce id molestie massa</a><br/>
 									<a href="#" class="category">Phasellus consequat</a>
 									<p class="price">$341</p>
 								</div>
 							</li>       
 							<li class="span3">
 								<div class="product-box">												
-									<a href="product_detail.html"><img alt="" src="themes/images/ladies/8.jpg"></a><br/>
-									<a href="product_detail.html" class="title">Praesent tempor sem</a><br/>
+									<a href="product_detail.php"><img alt="" src="themes/images/ladies/8.jpg"></a><br/>
+									<a href="product_detail.php" class="title">Praesent tempor sem</a><br/>
 									<a href="#" class="category">Erat gravida</a>
 									<p class="price">$28</p>
 								</div>
@@ -102,8 +102,8 @@
 							<li class="span3">
 								<div class="product-box">
 									<span class="sale_tag"></span>												
-									<a href="product_detail.html"><img alt="" src="themes/images/ladies/7.jpg"></a><br/>
-									<a href="product_detail.html" class="title">Wuam ultrices rutrum</a><br/>
+									<a href="product_detail.php"><img alt="" src="themes/images/ladies/7.jpg"></a><br/>
+									<a href="product_detail.php" class="title">Wuam ultrices rutrum</a><br/>
 									<a href="#" class="category">Suspendisse aliquet</a>
 									<p class="price">$341</p>
 								</div>
@@ -111,48 +111,48 @@
 							<li class="span3">
 								<div class="product-box">												
 									<span class="sale_tag"></span>
-									<a href="product_detail.html"><img alt="" src="themes/images/ladies/6.jpg"></a><br/>
-									<a href="product_detail.html" class="title">Praesent tempor sem sodales</a><br/>
+									<a href="product_detail.php"><img alt="" src="themes/images/ladies/6.jpg"></a><br/>
+									<a href="product_detail.php" class="title">Praesent tempor sem sodales</a><br/>
 									<a href="#" class="category">Nam imperdiet</a>
 									<p class="price">$49</p>
 								</div>
 							</li>
 							<li class="span3">
 								<div class="product-box">                                        												
-									<a href="product_detail.html"><img alt="" src="themes/images/ladies/1.jpg"></a><br/>
-									<a href="product_detail.html" class="title">Fusce id molestie massa</a><br/>
+									<a href="product_detail.php"><img alt="" src="themes/images/ladies/1.jpg"></a><br/>
+									<a href="product_detail.php" class="title">Fusce id molestie massa</a><br/>
 									<a href="#" class="category">Congue diam congue</a>
 									<p class="price">$35</p>
 								</div>
 							</li>       
 							<li class="span3">
 								<div class="product-box">												
-									<a href="product_detail.html"><img alt="" src="themes/images/ladies/2.jpg"></a><br/>
-									<a href="product_detail.html" class="title">Tempor sem sodales</a><br/>
+									<a href="product_detail.php"><img alt="" src="themes/images/ladies/2.jpg"></a><br/>
+									<a href="product_detail.php" class="title">Tempor sem sodales</a><br/>
 									<a href="#" class="category">Gravida placerat</a>
 									<p class="price">$61</p>
 								</div>
 							</li>
 							<li class="span3">
 								<div class="product-box">												
-									<a href="product_detail.html"><img alt="" src="themes/images/ladies/3.jpg"></a><br/>
-									<a href="product_detail.html" class="title">Quam ultrices rutrum</a><br/>
+									<a href="product_detail.php"><img alt="" src="themes/images/ladies/3.jpg"></a><br/>
+									<a href="product_detail.php" class="title">Quam ultrices rutrum</a><br/>
 									<a href="#" class="category">Orci et nisl iaculis</a>
 									<p class="price">$233</p>
 								</div>
 							</li>
 							<li class="span3">
 								<div class="product-box">												
-									<a href="product_detail.html"><img alt="" src="themes/images/ladies/4.jpg"></a><br/>
-									<a href="product_detail.html" class="title">Tempor sem sodales</a><br/>
+									<a href="product_detail.php"><img alt="" src="themes/images/ladies/4.jpg"></a><br/>
+									<a href="product_detail.php" class="title">Tempor sem sodales</a><br/>
 									<a href="#" class="category">Urna nec lectus mollis</a>
 									<p class="price">$134</p>
 								</div>
 							</li>
 							<li class="span3">
 								<div class="product-box">												
-									<a href="product_detail.html"><img alt="" src="themes/images/ladies/5.jpg"></a><br/>
-									<a href="product_detail.html" class="title">Luctus quam ultrices</a><br/>
+									<a href="product_detail.php"><img alt="" src="themes/images/ladies/5.jpg"></a><br/>
+									<a href="product_detail.php" class="title">Luctus quam ultrices</a><br/>
 									<a href="#" class="category">Suspendisse aliquet</a>
 									<p class="price">$261</p>
 								</div>
@@ -174,20 +174,20 @@
 						<div class="block">	
 							<ul class="nav nav-list">
 								<li class="nav-header">SUB CATEGORIES</li>
-								<li><a href="products.html">Nullam semper elementum</a></li>
-								<li class="active"><a href="products.html">Phasellus ultricies</a></li>
-								<li><a href="products.html">Donec laoreet dui</a></li>
-								<li><a href="products.html">Nullam semper elementum</a></li>
-								<li><a href="products.html">Phasellus ultricies</a></li>
-								<li><a href="products.html">Donec laoreet dui</a></li>
+								<li><a href="products.php">Nullam semper elementum</a></li>
+								<li class="active"><a href="products.php">Phasellus ultricies</a></li>
+								<li><a href="products.php">Donec laoreet dui</a></li>
+								<li><a href="products.php">Nullam semper elementum</a></li>
+								<li><a href="products.php">Phasellus ultricies</a></li>
+								<li><a href="products.php">Donec laoreet dui</a></li>
 							</ul>
 							<br/>
 							<ul class="nav nav-list below">
 								<li class="nav-header">MANUFACTURES</li>
-								<li><a href="products.html">Adidas</a></li>
-								<li><a href="products.html">Nike</a></li>
-								<li><a href="products.html">Dunlop</a></li>
-								<li><a href="products.html">Yamaha</a></li>
+								<li><a href="products.php">Adidas</a></li>
+								<li><a href="products.php">Nike</a></li>
+								<li><a href="products.php">Dunlop</a></li>
+								<li><a href="products.php">Yamaha</a></li>
 							</ul>
 						</div>
 						<div class="block">
@@ -205,7 +205,7 @@
 												<div class="product-box">
 													<span class="sale_tag"></span>												
 													<img alt="" src="themes/images/ladies/1.jpg"><br/>
-													<a href="product_detail.html" class="title">Fusce id molestie massa</a><br/>
+													<a href="product_detail.php" class="title">Fusce id molestie massa</a><br/>
 													<a href="#" class="category">Suspendisse aliquet</a>
 													<p class="price">$261</p>
 												</div>
@@ -217,7 +217,7 @@
 											<li class="span3">
 												<div class="product-box">												
 													<img alt="" src="themes/images/ladies/2.jpg"><br/>
-													<a href="product_detail.html" class="title">Tempor sem sodales</a><br/>
+													<a href="product_detail.php" class="title">Tempor sem sodales</a><br/>
 													<a href="#" class="category">Urna nec lectus mollis</a>
 													<p class="price">$134</p>
 												</div>
@@ -258,11 +258,11 @@
 					<div class="span3">
 						<h4>Navigation</h4>
 						<ul class="nav">
-							<li><a href="./index.html">Homepage</a></li>  
+							<li><a href="index.php">Homepage</a></li>
 							<li><a href="./about.html">About Us</a></li>
-							<li><a href="./contact.html">Contac Us</a></li>
-							<li><a href="./cart.html">Your Cart</a></li>
-							<li><a href="./register.html">Login</a></li>							
+							<li><a href="contact.php">Contac Us</a></li>
+							<li><a href="cart.php">Your Cart</a></li>
+							<li><a href="register.php">Login</a></li>
 						</ul>					
 					</div>
 					<div class="span4">
