@@ -5,11 +5,11 @@
         <div class="span3">
             <h4>Navigation</h4>
             <ul class="nav">
-                <li><a href="index.php">Homepage</a></li>
-                <li><a href="./about.html">About Us</a></li>
-                <li><a href="contact.php">Contac Us</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <li><a href="account.php">Account</a></li>
                 <li><a href="cart.php">Your Cart</a></li>
-                <li><a href="login.php">Login</a></li>
             </ul>
         </div>
         <div class="span4"></div>

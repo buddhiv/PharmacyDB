@@ -8,7 +8,7 @@
                 <li><a href="products.php">Home</a></li>
                 <li><a href="products.php">About</a></li>
                 <li><a href="products.php">Contact</a></li>
-                <li><a href="products.php">Log in</a></li>
+                <li><a href="login.php">Log in</a></li>
             </ul>
         </nav>
     </div>

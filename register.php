@@ -103,7 +103,7 @@
                                 <input tabindex="3" class="btn btn-primary" type="submit"
                                        value="Register">
                                 <hr>
-                                <p class="reset"><a tabindex="4" href="#">Already have an account?</a></p>
+                                <p class="reset"><a tabindex="4" href="login.php">Already have an account?</a></p>
                             </div>
                     </fieldset>
                 </form>

@@ -58,10 +58,9 @@
 
     <div class="container">
         <div class="row">
-            <div class=" center">
+            <div class="center">
                 <form action="#" method="post">
                     <fieldset>
-
                         <div class="control-group">
                             <label class="control-label">User Name</label>
 
@@ -83,7 +82,7 @@
                             <input tabindex="3" class="btn btn-primary" type="submit"
                                    value="Sign In">
                             <hr>
-                            <p class="reset"><a tabindex="4" href="#">Register as New User</a></p>
+                            <p class="reset"><a tabindex="4" href="register.php">Register as New User</a></p>
                         </div>
                     </fieldset>
                 </form>
