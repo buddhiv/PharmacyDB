@@ -51,48 +51,62 @@
     <?php include 'menu.php' ?>
 
     <section class="header_text sub">
-
         <img class="pageBanner" src="themes/images/pageBanner.png" alt="New products">
         <h4 class="title"><span class="text"><strong>Login</strong> Form</span></h4>
     </section>
 
     <div class="container">
         <div class="row">
-            <div class=" center" >
-<<<<<<< HEAD
+            <div class=" center">
                 <form action="#" method="post">
                     <input type="hidden" name="next" value="/">
                     <fieldset>
-=======
-                    <form action="./php/controller/userController.php" method="post">
-                        <input type="hidden" name="next" value="/">
-                        <fieldset>
->>>>>>> 27f18e46d0820762d2088126d69a6cb34d427f11
+                        <form action="./php/controller/userController.php" method="post">
 
-                        <div class="control-group">
-                            <label class="control-label">User Name</label>
-                            <div class="controls">
-                                <input type="text" placeholder="Enter your username" id="username" class="input-xlarge">
+                            <div class="control-group">
+                                <label class="control-label">User Name</label>
+
+                                <div class="controls">
+                                    <input type="text" placeholder="" id="username"
+                                           class="input-xlarge">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="control-group">
-                            <label class="control-label">Password</label>
-                            <div class="controls">
-                                <input type="password" placeholder="Enter your password" id="password"
-                                       class="input-xlarge">
+                            <div class="control-group">
+                                <label class="control-label">Address</label>
+
+                                <div class="controls">
+                                    <input type="password" placeholder="" id="address"
+                                           class="input-xlarge">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="control-group">
-                            <input tabindex="3" class="btn btn-primary" type="submit"
-                                   value="Sign In">
-                            <hr>
-                            <p class="reset"><a tabindex="4" href="#">Register as New User</a></p>
-                        </div>
+                            <div class="control-group">
+                                <label class="control-label">Password</label>
+
+                                <div class="controls">
+                                    <input type="password" placeholder="" id="password"
+                                           class="input-xlarge">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label">Retype Password</label>
+
+                                <div class="controls">
+                                    <input type="password" placeholder="" id="retypepassword"
+                                           class="input-xlarge">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <input tabindex="3" class="btn btn-primary" type="submit"
+                                       value="Register">
+                                <hr>
+                                <p class="reset"><a tabindex="4" href="#">Already have an account?</a></p>
+                            </div>
                     </fieldset>
                 </form>
-
             </div>
         </div>
     </div>

@@ -58,34 +58,35 @@
 
     <div class="container">
         <div class="row">
-            <div class=" center" >
-                    <form action="#" method="post">
-                        <input type="hidden" name="next" value="/">
-                        <fieldset>
+            <div class=" center">
+                <form action="#" method="post">
+                    <fieldset>
 
-                            <div class="control-group">
-                                <label class="control-label">User Name</label>
-                                <div class="controls">
-                                    <input type="text" placeholder="Enter your username" id="username" class="input-xlarge">
-                                </div>
-                            </div>
+                        <div class="control-group">
+                            <label class="control-label">User Name</label>
 
-                            <div class="control-group">
-                                <label class="control-label">Password</label>
-                                <div class="controls">
-                                    <input type="password" placeholder="Enter your password" id="password"
-                                           class="input-xlarge">
-                                </div>
+                            <div class="controls">
+                                <input type="text" placeholder="" id="username" class="input-xlarge">
                             </div>
+                        </div>
 
-                            <div class="control-group">
-                                <input tabindex="3" class="btn btn-primary" type="submit"
-                                       value="Sign In">
-                                <hr>
-                                <p class="reset"><a tabindex="4" href="#">Register as New User</a></p>
+                        <div class="control-group">
+                            <label class="control-label">Password</label>
+
+                            <div class="controls">
+                                <input type="password" placeholder="" id="password"
+                                       class="input-xlarge">
                             </div>
-                        </fieldset>
-                    </form>
+                        </div>
+
+                        <div class="control-group">
+                            <input tabindex="3" class="btn btn-primary" type="submit"
+                                   value="Sign In">
+                            <hr>
+                            <p class="reset"><a tabindex="4" href="#">Register as New User</a></p>
+                        </div>
+                    </fieldset>
+                </form>
 
             </div>
         </div>
