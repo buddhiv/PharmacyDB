@@ -76,7 +76,7 @@
                                 <label class="control-label">Address</label>
 
                                 <div class="controls">
-                                    <input type="password" placeholder="" id="address"
+                                    <input type="text" placeholder="" id="address"
                                            class="input-xlarge">
                                 </div>
                             </div>
