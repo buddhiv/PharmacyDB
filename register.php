@@ -59,9 +59,15 @@
     <div class="container">
         <div class="row">
             <div class=" center" >
+<<<<<<< HEAD
                 <form action="#" method="post">
                     <input type="hidden" name="next" value="/">
                     <fieldset>
+=======
+                    <form action="./php/controller/userController.php" method="post">
+                        <input type="hidden" name="next" value="/">
+                        <fieldset>
+>>>>>>> 27f18e46d0820762d2088126d69a6cb34d427f11
 
                         <div class="control-group">
                             <label class="control-label">User Name</label>
