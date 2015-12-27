@@ -27,25 +27,9 @@
     <![endif]-->
 </head>
 <body>
-<div id="top-bar" class="container">
-    <div class="row">
-        <div class="span4">
-            <form method="POST" class="search_form">
-                <input type="text" class="input-block-level search-query" Placeholder="eg. T-sirt">
-            </form>
-        </div>
-        <div class="span8">
-            <div class="account pull-right">
-                <ul class="user-menu">
-                    <li><a href="#">My Account</a></li>
-                    <li><a href="cart.php">Your Cart</a></li>
-                    <li><a href="checkout.php">Checkout</a></li>
-                    <li><a href="register.php">Login</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+
+<?php include 'cart_controls.php' ?>
+
 <div id="wrapper" class="container">
 
     <?php include 'menu.php' ?>
@@ -58,51 +42,55 @@
 
     <div class="container">
         <div class="row">
-            <div class=" center" >
-                    <form action="./php/controller/userController.php" method="post">
-                        <input type="hidden" name="next" value="/">
-                        <fieldset>
+            <div class=" center">
+                <form action="./php/controller/userController.php" method="post">
+                    <input type="hidden" name="next" value="/">
+                    <fieldset>
 
-                            <div class="control-group">
-                                <label class="control-label">User Name</label>
-                                <div class="controls">
-                                    <input type="text" placeholder="" id="username"
-                                           class="input-xlarge">
-                                </div>
-                            </div>
+                        <div class="control-group">
+                            <label class="control-label">User Name</label>
 
-                            <div class="control-group">
-                                <label class="control-label">Address</label>
-                                <div class="controls">
-                                    <input type="text" placeholder="" id="address"
-                                           class="input-xlarge">
-                                </div>
+                            <div class="controls">
+                                <input type="text" placeholder="" id="username"
+                                       class="input-xlarge">
                             </div>
+                        </div>
 
-                            <div class="control-group">
-                                <label class="control-label">Password</label>
-                                <div class="controls">
-                                    <input type="password" placeholder="" id="password" name="password"
-                                           class="input-xlarge">
-                                </div>
-                            </div>
+                        <div class="control-group">
+                            <label class="control-label">Address</label>
 
-                            <div class="control-group">
-                                <label class="control-label">Retype Password</label>
-                                <div class="controls">
-                                    <input type="password" placeholder="" id="retypepassword" name="retypepassword"
-                                           class="input-xlarge">
-                                </div>
+                            <div class="controls">
+                                <input type="text" placeholder="" id="address"
+                                       class="input-xlarge">
                             </div>
+                        </div>
 
-                            <div class="control-group">
-                                <input tabindex="3" class="btn btn-primary" type="submit"
-                                       value="Sign In">
-                                <hr>
-                                <p class="reset"><a tabindex="4" href="login.php">Already have an account?</a></p>
+                        <div class="control-group">
+                            <label class="control-label">Password</label>
+
+                            <div class="controls">
+                                <input type="password" placeholder="" id="password" name="password"
+                                       class="input-xlarge">
                             </div>
-                        </fieldset>
-                    </form>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">Retype Password</label>
+
+                            <div class="controls">
+                                <input type="password" placeholder="" id="retypepassword" name="retypepassword"
+                                       class="input-xlarge">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <input tabindex="3" class="btn btn-primary" type="submit"
+                                   value="Sign In">
+                            <hr>
+                            <p class="reset"><a tabindex="4" href="login.php">Already have an account?</a></p>
+                        </div>
+                    </fieldset>
+                </form>
 
             </div>
         </div>
