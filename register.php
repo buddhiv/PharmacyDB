@@ -40,7 +40,7 @@
                     <li><a href="#">My Account</a></li>
                     <li><a href="cart.php">Your Cart</a></li>
                     <li><a href="checkout.php">Checkout</a></li>
-                    <li><a href="login.php">Login</a></li>
+                    <li><a href="register.php">Login</a></li>
                 </ul>
             </div>
         </div>
@@ -51,21 +51,20 @@
     <?php include 'menu.php' ?>
 
     <section class="header_text sub">
+
         <img class="pageBanner" src="themes/images/pageBanner.png" alt="New products">
         <h4 class="title"><span class="text"><strong>Login</strong> Form</span></h4>
     </section>
 
     <div class="container">
         <div class="row">
-            <div class=" center">
-                <form action="#" method="post">
-                    <input type="hidden" name="next" value="/">
-                    <fieldset>
-                        <form action="./php/controller/userController.php" method="post">
+            <div class=" center" >
+                    <form action="./php/controller/userController.php" method="post">
+                        <input type="hidden" name="next" value="/">
+                        <fieldset>
 
                             <div class="control-group">
                                 <label class="control-label">User Name</label>
-
                                 <div class="controls">
                                     <input type="text" placeholder="" id="username"
                                            class="input-xlarge">
@@ -74,7 +73,6 @@
 
                             <div class="control-group">
                                 <label class="control-label">Address</label>
-
                                 <div class="controls">
                                     <input type="text" placeholder="" id="address"
                                            class="input-xlarge">
@@ -83,30 +81,29 @@
 
                             <div class="control-group">
                                 <label class="control-label">Password</label>
-
                                 <div class="controls">
-                                    <input type="password" placeholder="" id="password"
+                                    <input type="password" placeholder="" id="password" name="password"
                                            class="input-xlarge">
                                 </div>
                             </div>
 
                             <div class="control-group">
                                 <label class="control-label">Retype Password</label>
-
                                 <div class="controls">
-                                    <input type="password" placeholder="" id="retypepassword"
+                                    <input type="password" placeholder="" id="retypepassword" name="retypepassword"
                                            class="input-xlarge">
                                 </div>
                             </div>
 
                             <div class="control-group">
                                 <input tabindex="3" class="btn btn-primary" type="submit"
-                                       value="Register">
+                                       value="Sign In">
                                 <hr>
                                 <p class="reset"><a tabindex="4" href="login.php">Already have an account?</a></p>
                             </div>
-                    </fieldset>
-                </form>
+                        </fieldset>
+                    </form>
+
             </div>
         </div>
     </div>
