@@ -39,7 +39,7 @@
 							<li><a href="#">My Account</a></li>
 							<li><a href="cart.php">Your Cart</a></li>
 							<li><a href="checkout.php">Checkout</a></li>
-							<li><a href="register.php">Login</a></li>
+							<li><a href="login.php">Login</a></li>
 						</ul>
 					</div>
 				</div>
@@ -139,7 +139,7 @@
 							<li><a href="./about.html">About Us</a></li>
 							<li><a href="contact.php">Contac Us</a></li>
 							<li><a href="cart.php">Your Cart</a></li>
-							<li><a href="register.php">Login</a></li>
+							<li><a href="login.php">Login</a></li>
 						</ul>					
 					</div>
 					<div class="span4">
