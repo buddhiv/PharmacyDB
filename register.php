@@ -43,7 +43,7 @@
     <div class="container">
         <div class="row">
             <div class=" center">
-                <form action="./php/controller/userController.php" method="post">
+                <form action="php/controller/UserController.php" method="post">
                     <input type="hidden" name="next" value="/">
                     <fieldset>
 
