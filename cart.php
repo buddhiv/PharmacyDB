@@ -127,7 +127,7 @@ $categories = getCategoryDetails();
             <div class="span3 col">
                 <div class="block">
                     <ul class="nav nav-list">
-                        <li class="nav-header">CATEGORIES</li>
+                        <li class="nav-header">BROWSE BY CATEGORIES</li>
 
                         <?php foreach ($categories as $category) {
                             ?>
