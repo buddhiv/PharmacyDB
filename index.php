@@ -1,6 +1,8 @@
 <?php
 include 'php/mysql_connector.php';
 include 'php/controller/ItemController.php';
+include 'php/controller/CategoryController.php';
+include 'php/controller/StockController.php';
 
 $items = getItemsListForHome();
 
@@ -105,7 +107,8 @@ if (isset($_SESSION["customerId"])) {
                                                                 alt=""/></a></p>
                                                     <a href="product_detail.php"
                                                        class="title"><?php echo $item['Name']; ?></a><br/>
-                                                    <a href="products.php" class="category"><?php echo $categoryname; ?></a>
+                                                    <a href="products.php"
+                                                       class="category"><?php echo $categoryname; ?></a>
                                                     <p class="price"><?php echo $item['Price']; ?></p>
                                                     <a class="category"><?php echo $isinstock; ?></a>
                                                 </div>
