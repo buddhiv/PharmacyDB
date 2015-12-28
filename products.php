@@ -39,7 +39,14 @@ $recentitems = getRecentItems();
 </head>
 <body>
 
-<?php include 'cart_controls.php'; ?>
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if (isset($_SESSION["customerId"])) {
+    include 'cart_controls.php';
+}
+?>
 
 <div id="wrapper" class="container">
 
