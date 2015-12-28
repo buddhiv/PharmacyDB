@@ -45,7 +45,6 @@
     ?>
 
     <section class="header_text sub">
-
         <img class="pageBanner" src="themes/images/pageBanner.png" alt="New products">
         <h4 class="title"><span class="text"><strong>Login</strong> Form</span></h4>
     </section>
