@@ -140,15 +140,63 @@
         })
     });
 
+    var Example = (function() {
+        "use strict";
+
+        var elem,
+            hideHandler,
+            that = {};
+
+        that.init = function(options) {
+            elem = $(options.selector);
+        };
+
+        that.show = function(text) {
+            clearTimeout(hideHandler);
+
+            elem.find("span").html(text);
+            elem.delay(200).fadeIn().delay(4000).fadeOut();
+        };
+
+        return that;
+    }());
+
     function validateForm() {
         var x = document.forms["customerForm"]["username"].value;
         if (x == null || x == "") {
-            bootbox.alert("User Name must be filled out");
+            bootbox.dialog({
+                size: 'small',
+                message: "User name must be filled out",
+                buttons: {
+                    success: {
+                        label: "Success!",
+                        className: "btn-danger",
+                        callback: function() {
+                            Example.show("great success");
+                        }
+
+                    }
+                }
+            });
+            //bootbox.alert("User Name must be filled out");
             return false;
         }
         x = document.forms["customerForm"]["fullname"].value;
         if (x == null || x == "") {
-            bootbox.alert("Customer Name must be filled out");
+            //bootbox.alert("Customer Name must be filled out");
+            bootbox.dialog({
+                size: 'medium',
+                message: "Your registration was successful",
+                buttons: {
+                    success: {
+                        label: "OK",
+                        className: "btn-success",
+                        callback: function() {
+                            Example.show("great success");
+                        }
+                    }
+                }
+            })
             return false;
         }
         x = document.forms["customerForm"]["address"].value;
@@ -175,6 +223,22 @@
         if (y != x) {
             bootbox.alert("Password dismatch.");
             return false;
+        }else{
+            //bootbox.alert("Your registration was successful");
+            bootbox.dialog({
+                size: 'medium',
+                message: "Your registration was successful",
+                buttons: {
+                    success: {
+                        label: "OK",
+                        className: "btn-success",
+                        callback: function() {
+                            Example.show("great success");
+                        }
+                    }
+                }
+            })
+
         }
     }
 
