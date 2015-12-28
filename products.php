@@ -54,12 +54,13 @@ if (isset($_SESSION["customerId"])) {
 
     <section class="header_text sub">
         <img class="pageBanner" src="themes/images/pageBanner.png" alt="New products">
-        <h4 class="title"><span class="text"><strong>Recent</strong> products</span></h4>
+        <h4 class="title"><span class="text">Products</span></h4>
     </section>
     <section class="main-content">
 
         <div class="row">
             <div class="span9">
+                <h4 class="title"><span class="text"><strong>Recent</strong> Products</span></h4>
                 <ul class="thumbnails listing-products">
 
                     <?php foreach ($recentitems as $item) {
