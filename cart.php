@@ -1,7 +1,6 @@
 <?php
 include 'php/controller/CategoryController.php';
 
-
 $categories = getCategoryDetails();
 
 ?>
@@ -44,12 +43,12 @@ $categories = getCategoryDetails();
 
     <section class="header_text sub">
         <img class="pageBanner" src="themes/images/pageBanner.png" alt="New products">
-        <h4><span>Shopping Cart</span></h4>
+        <h4 class="title"><span class="text"><strong>Shopping</strong> cart</span></h4>
     </section>
     <section class="main-content">
         <div class="row">
             <div class="span9">
-                <h4 class="title"><span class="text"><strong>Your</strong> Cart</span></h4>
+                <h4 class="title"><span class="text"><strong>View</strong> Your Cart</span></h4>
                 <table class="table table-striped">
                     <thead>
                     <tr>
