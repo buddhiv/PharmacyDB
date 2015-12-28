@@ -5,10 +5,21 @@
         <a href="index.php" class="logo pull-left"><img src="themes/images/logo.png" class="site_logo" alt=""></a>
         <nav id="menu" class="pull-right">
             <ul>
-                <li><a href="products.php">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="products.php">About</a></li>
-                <li><a href="products.php">Contact</a></li>
-                <li><a href="login.php">Log in</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <?php
+                if (session_status() == PHP_SESSION_NONE) {
+                    session_start();
+                }
+                if (isset($_SESSION["customerId"])) {
+                    echo('<li><a href="logout.php">Log out</a></li>');
+                }else{
+                    echo('<li><a href="login.php">Log in</a></li>');
+                }
+                ?>
+
+
             </ul>
         </nav>
     </div>

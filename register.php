@@ -24,6 +24,9 @@
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <script src="js/respond.min.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <![endif]-->
 </head>
 <body>
@@ -43,7 +46,7 @@
     <div class="container">
         <div class="row">
             <div class=" center">
-                <form action="./php/controller/userController.php" method="post">
+                <form name="customerForm" action="php/controller/UserController.php" onsubmit="return validateForm()" method="post">
                     <input type="hidden" name="next" value="/">
                     <fieldset>
 
@@ -129,12 +132,52 @@
 
 </div>
 <script src="themes/js/common.js"></script>
+<script src="./bootstrap/bootbox.min.js"></script>
 <script>
     $(document).ready(function () {
         $('#checkout').click(function (e) {
             document.location.href = "checkout.php";
         })
     });
+
+    function validateForm() {
+        var x = document.forms["customerForm"]["username"].value;
+        if (x == null || x == "") {
+            bootbox.alert("User Name must be filled out");
+            return false;
+        }
+        x = document.forms["customerForm"]["fullname"].value;
+        if (x == null || x == "") {
+            bootbox.alert("Customer Name must be filled out");
+            return false;
+        }
+        x = document.forms["customerForm"]["address"].value;
+        if (x == null || x == "") {
+            bootbox.alert("Address must be filled out");
+            return false;
+        }
+        x = document.forms["customerForm"]["telephone"].value;
+        if (x == null || x == "") {
+            bootbox.alert("Telephone must be filled out");
+            return false;
+        }
+        x = document.forms["customerForm"]["nic"].value;
+        if (x == null || x == "") {
+            bootbox.alert("NIC must be filled out");
+            return false;
+        }
+        x = document.forms["customerForm"]["password"].value;
+        if (x == null || x == "") {
+            bootbox.alert("Password must be filled out");
+            return false;
+        }
+        var y = document.forms["customerForm"]["retypepassword"].value;
+        if (y != x) {
+            bootbox.alert("Password dismatch.");
+            return false;
+        }
+    }
+
 </script>
 </body>
 </html>

@@ -28,11 +28,21 @@
 </head>
 <body>
 
-<?php include 'cart_controls.php' ?>
 
 <div id="wrapper" class="container">
 
     <?php include 'menu.php' ?>
+
+
+    <?php
+    if (isset($_GET['attempt'])) {
+        echo '<script src="./bootstrap/bootbox.min.js"></script>
+            <script>
+            bootbox.alert("Wrong username or password.");
+            </script>
+        ';
+    }
+    ?>
 
     <section class="header_text sub">
 

@@ -10,11 +10,12 @@ include_once "../mysql_connector.php";
 
 if (isset($_POST["addUser"])) {
     addUser();
-}elseif(isset($_POST["login"])) {
+} elseif (isset($_POST["login"])) {
     logIn();
 }
 
-function addUser(){
+function addUser()
+{
     $userName = preg_replace('#[^A-Za-z0-9]#', '', $_POST["username"]);
     $fullName = preg_replace('#[^A-Za-z0-9]#', '', $_POST["fullname"]);
     $address = preg_replace('#[^A-Za-z0-9]#', '', $_POST["address"]);
@@ -39,13 +40,14 @@ function addUser(){
     header('Location: http://localhost/PharmacyDB/login.php');
 }
 
-function logIn(){
+function logIn()
+{
     session_start();
     $userName = preg_replace('#[^A-Za-z0-9]#', '', $_POST["username"]);
     $password = preg_replace('#[^A-Za-z0-9]#', '', $_POST["password"]);
 
     $connection = getConnection();
-    $sql = mysqli_query($connection,"SELECT CustomerId FROM fcustomer WHERE username='$userName' AND password='$password' LIMIT 1");
+    $sql = mysqli_query($connection, "SELECT CustomerId FROM fcustomer WHERE username='$userName' AND password='$password' LIMIT 1");
 
     $existCount = mysqli_num_rows($sql);
     if ($existCount == 1) {
@@ -53,12 +55,10 @@ function logIn(){
             $id = $row["CustomerId"];
         }
         $_SESSION["customerId"] = $id;
-        $_SESSION["customerName"] = $userName;
-        $_SESSION["password"] = $password;
         header('Location: http://localhost/PharmacyDB/index.php');
     } else {
-        echo "The information incorrect. Try again.";
-        header('Location: http://localhost/PharmacyDB/login.php');
+
+        header('Location: http://localhost/PharmacyDB/login.php?attempt=1');
 
     }
     $connection->close();
