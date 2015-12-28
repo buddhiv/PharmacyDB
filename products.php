@@ -62,17 +62,18 @@ if (isset($_SESSION["customerId"])) {
             <div class="span9">
                 <ul class="thumbnails listing-products">
 
-                    <?php foreach ($recentitems as $item) { 
+                    <?php foreach ($recentitems as $item) {
                         $categoryname = getCategoryName($item['CategoryId']);
                         $isinstock = isItemInStock($item['MedicineId']);
+                        $medicineId = $item['MedicineId'];
                         ?>
                         <li class="span3">
                             <div class="product-box">
 
                                 <span class="sale_tag"></span>
-                                <a href="product_detail.php?medicineId="><img alt=""
+                                <?php echo '<a href="product_detail.php?medicineId='.$medicineId.'"' ?>><img alt=""
                                                                               src="themes/images/ladies/9.jpg"></a><br/>
-                                <a href="product_detail.php" class="title"><?php echo $item['Name']; ?></a><br/>
+                                <?php echo '<a href="product_detail.php?medicineId='.$medicineId.'"' ?> class="title"><?php echo $item['Name']; ?></a><br/>
                                 <a class="category"><?php echo $categoryname; ?></a>
 
                                 <p class="price"><?php echo $item['Price']; ?></p>
