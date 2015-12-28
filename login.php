@@ -43,13 +43,13 @@
     <div class="container">
         <div class="row">
             <div class="center">
-                <form action="#" method="post">
+                <form action="./php/controller/userController.php" method="post">
                     <fieldset>
                         <div class="control-group">
                             <label class="control-label">User Name</label>
 
                             <div class="controls">
-                                <input type="text" placeholder="" id="username" class="input-xlarge">
+                                <input type="text" placeholder="" id="username" class="input-xlarge" name="username">
                             </div>
                         </div>
 
@@ -57,14 +57,14 @@
                             <label class="control-label">Password</label>
 
                             <div class="controls">
-                                <input type="password" placeholder="" id="password"
+                                <input type="password" placeholder="" id="password" name="password"
                                        class="input-xlarge">
                             </div>
                         </div>
+                        <input type="hidden" name="login" value="user" >
 
                         <div class="control-group">
-                            <input tabindex="3" class="btn btn-primary" type="submit"
-                                   value="Sign In">
+                            <input tabindex="3" class="btn btn-primary" type="submit" value="Sign In">
                             <hr>
                             <p class="reset"><a tabindex="4" href="register.php">Don't have an account?</a></p>
                         </div>
