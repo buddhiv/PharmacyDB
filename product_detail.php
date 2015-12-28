@@ -63,8 +63,8 @@ if (isset($_GET['medicineId'])) {
                 <div class="span9">
                     <div class="row">
                         <div class="span4">
-                            <a href="themes/images/ladies/1.jpg" class="thumbnail" data-fancybox-group="group1"
-                               title="Description 1"><img alt="" src="themes/images/ladies/1.jpg"></a>
+                            <a href="<?php echo './images/products/' . $medicineId.'.jpg' ?>" class="thumbnail" data-fancybox-group="group1"
+                               title="Description 1"><img alt="" src="<?php echo './images/products/' . $medicineId.'.jpg' ?>"></a>
                             <br/>
                         </div>
                         <div class="span5">

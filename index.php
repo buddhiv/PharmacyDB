@@ -106,7 +106,7 @@ if (isset($_SESSION['customerId'])) {
 
                                                     <p>
                                                         <a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>"><img
-                                                                src="themes/images/ladies/1.jpg"
+                                                                src="<?php echo './images/products/' . $medicineId.'.jpg' ?>"
                                                                 alt=""/></a></p>
                                                     <a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>"
                                                        class="title"><?php echo $item['Name']; ?></a><br/>
