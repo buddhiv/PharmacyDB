@@ -37,7 +37,16 @@
     if (isset($_GET['attempt'])) {
         echo '<script src="./bootstrap/bootbox.min.js"></script>
             <script>
-            bootbox.alert("Wrong username or password.");
+            bootbox.dialog({
+                title:"Wrong username or password.",
+                message: "Please enter correct username and password.",
+                buttons: {
+                    success: {
+                        label: "OK",
+                        className: "btn-danger"
+                    }
+                }
+            });
             </script>
         ';
     }

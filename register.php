@@ -142,22 +142,17 @@
 
     var Example = (function() {
         "use strict";
-
         var elem,
             hideHandler,
             that = {};
-
         that.init = function(options) {
             elem = $(options.selector);
         };
-
         that.show = function(text) {
             clearTimeout(hideHandler);
-
             elem.find("span").html(text);
             elem.delay(200).fadeIn().delay(4000).fadeOut();
         };
-
         return that;
     }());
 
@@ -165,79 +160,118 @@
         var x = document.forms["customerForm"]["username"].value;
         if (x == null || x == "") {
             bootbox.dialog({
-                size: 'small',
-                message: "User name must be filled out",
+                title:"User name must be filled out",
+                message: "Please fill the full form and submit again.",
                 buttons: {
                     success: {
-                        label: "Success!",
-                        className: "btn-danger",
-                        callback: function() {
-                            Example.show("great success");
-                        }
-
+                        label: "OK",
+                        className: "btn-danger"
                     }
                 }
             });
-            //bootbox.alert("User Name must be filled out");
             return false;
         }
         x = document.forms["customerForm"]["fullname"].value;
         if (x == null || x == "") {
             //bootbox.alert("Customer Name must be filled out");
             bootbox.dialog({
-                size: 'medium',
-                message: "Your registration was successful",
+                title:"Customer Name must be filled out",
+                message: "Please fill the full form and submit again.",
                 buttons: {
                     success: {
                         label: "OK",
-                        className: "btn-success",
-                        callback: function() {
-                            Example.show("great success");
-                        }
+                        className: "btn-danger"
                     }
                 }
-            })
+            });
             return false;
         }
         x = document.forms["customerForm"]["address"].value;
         if (x == null || x == "") {
-            bootbox.alert("Address must be filled out");
+
+            bootbox.dialog({
+                title:"Address must be filled out",
+                message: "Please fill the full form and submit again.",
+                buttons: {
+                    success: {
+                        label: "OK",
+                        className: "btn-danger"
+                    }
+                }
+            });
             return false;
         }
         x = document.forms["customerForm"]["telephone"].value;
         if (x == null || x == "") {
-            bootbox.alert("Telephone must be filled out");
+
+            bootbox.dialog({
+                title:"Telephone must be filled out",
+                message: "Please fill the full form and submit again.",
+                buttons: {
+                    success: {
+                        label: "OK",
+                        className: "btn-danger"
+                    }
+                }
+            });
             return false;
         }
         x = document.forms["customerForm"]["nic"].value;
         if (x == null || x == "") {
-            bootbox.alert("NIC must be filled out");
+
+            bootbox.dialog({
+                title:"NIC must be filled out",
+                message: "Please fill the full form and submit again.",
+                buttons: {
+                    success: {
+                        label: "OK",
+                        className: "btn-danger"
+                    }
+                }
+            });
             return false;
         }
         x = document.forms["customerForm"]["password"].value;
         if (x == null || x == "") {
-            bootbox.alert("Password must be filled out");
+
+            bootbox.dialog({
+                title:"Password must be filled out",
+                message: "Please fill the full form and submit again.",
+                buttons: {
+                    success: {
+                        label: "OK",
+                        className: "btn-danger"
+                    }
+                }
+            });
             return false;
         }
         var y = document.forms["customerForm"]["retypepassword"].value;
         if (y != x) {
-            bootbox.alert("Password dismatch.");
+
+            bootbox.dialog({
+                title:"Password dismatch.",
+                message: "Please fill the full form and submit again.",
+                buttons: {
+                    success: {
+                        label: "OK",
+                        className: "btn-danger"
+                    }
+                }
+            });
             return false;
         }else{
             //bootbox.alert("Your registration was successful");
             bootbox.dialog({
-                size: 'medium',
-                message: "Your registration was successful",
+                title:"Registration successful",
+                message: "  ",
                 buttons: {
                     success: {
                         label: "OK",
-                        className: "btn-success",
-                        callback: function() {
-                            Example.show("great success");
-                        }
+                        className: "btn-success"
                     }
                 }
-            })
+            });
 
         }
     }
