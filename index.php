@@ -1,6 +1,6 @@
 <?php
 include 'php/mysql_connector.php';
-include 'php/controller/ItemController.php';
+include 'php/controller/MedicineController.php';
 include 'php/controller/CategoryController.php';
 include 'php/controller/StockController.php';
 
@@ -43,7 +43,7 @@ $items = getItemsListForHome();
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-if (isset($_SESSION["customerId"])) {
+if (isset($_SESSION['customerId'])) {
     include 'cart_controls.php';
 }
 ?>
@@ -97,20 +97,22 @@ if (isset($_SESSION["customerId"])) {
                                         <?php foreach ($items as $item) {
                                             $categoryname = getCategoryName($item['CategoryId']);
                                             $isinstock = isItemInStock($item['MedicineId']);
+
+                                            $medicineId = $item['MedicineId'];
                                             ?>
                                             <li class="span3">
                                                 <div class="product-box">
                                                     <span class="sale_tag"></span>
 
-                                                    <p><a href="product_detail.php"><img
+                                                    <p>
+                                                        <a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>"><img
                                                                 src="themes/images/ladies/1.jpg"
                                                                 alt=""/></a></p>
-                                                    <a href="product_detail.php"
+                                                    <a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>"
                                                        class="title"><?php echo $item['Name']; ?></a><br/>
-                                                    <a href="products.php"
-                                                       class="category"><?php echo $categoryname; ?></a>
+                                                    <a class="category"><?php echo $categoryname; ?></a>
+
                                                     <p class="price"><?php echo $item['Price']; ?></p>
-                                                    <a class="category"><?php echo $isinstock; ?></a>
                                                 </div>
                                             </li>
                                             <?php

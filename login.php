@@ -33,7 +33,6 @@
 
     <?php include 'menu.php' ?>
 
-
     <?php
     if (isset($_GET['attempt'])) {
         echo '<script src="./bootstrap/bootbox.min.js"></script>
@@ -52,7 +51,7 @@
     <div class="container">
         <div class="row">
             <div class="center">
-                <form action="./php/controller/userController.php" method="post">
+                <form action="php/controller/UserController.php" method="post">
                     <fieldset>
                         <div class="control-group">
                             <label class="control-label">User Name</label>
@@ -70,7 +69,7 @@
                                        class="input-xlarge">
                             </div>
                         </div>
-                        <input type="hidden" name="login" value="user" >
+                        <input type="hidden" name="login" value="user">
 
                         <div class="control-group">
                             <input tabindex="3" class="btn btn-primary" type="submit" value="Sign In">

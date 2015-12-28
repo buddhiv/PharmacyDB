@@ -1,6 +1,6 @@
 <?php
 include 'php/mysql_connector.php';
-include 'php/controller/ItemController.php';
+include 'php/controller/MedicineController.php';
 include 'php/controller/CategoryController.php';
 include 'php/controller/StockController.php';
 
@@ -66,22 +66,24 @@ if (isset($_SESSION["customerId"])) {
                     <?php foreach ($recentitems as $item) {
                         $categoryname = getCategoryName($item['CategoryId']);
                         $isinstock = isItemInStock($item['MedicineId']);
+
                         $medicineId = $item['MedicineId'];
                         ?>
                         <li class="span3">
                             <div class="product-box">
-
                                 <span class="sale_tag"></span>
-                                <?php echo '<a href="product_detail.php?medicineId='.$medicineId.'"' ?>><img alt=""
-                                                                              src="themes/images/ladies/9.jpg"></a><br/>
-                                <?php echo '<a href="product_detail.php?medicineId='.$medicineId.'"' ?> class="title"><?php echo $item['Name']; ?></a><br/>
+                                <a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>">
+                                    <img alt="" src="themes/images/ladies/9.jpg"/></a>
+                                <br/>
+                                <a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>"
+                                   class="title"><?php echo $item['Name']; ?></a><br/>
                                 <a class="category"><?php echo $categoryname; ?></a>
 
                                 <p class="price"><?php echo $item['Price']; ?></p>
                                 <a class="category"><?php echo $isinstock; ?></a>
                             </div>
                         </li>
-                    <?php
+                        <?php
                     } ?>
 
                 </ul>
