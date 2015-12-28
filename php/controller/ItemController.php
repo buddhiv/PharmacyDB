@@ -7,13 +7,13 @@
  * Time: 1:24 PM
  */
 
-include 'mysql_connector1.php';
-
-function getRecentItems(){
+function getRecentItems()
+{
     $link = getConnection();
     $sql = "SELECT * FROM fmedicine ORDER BY RecievedOn DESC LIMIT 9";
 
     $resultset = mysqli_query($link, $sql);
+    mysqli_close($link);
 
     return $resultset;
 }

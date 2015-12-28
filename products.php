@@ -1,6 +1,10 @@
 <?php
+include 'php/mysql_connector.php';
 include 'php/controller/ItemController.php';
+include 'php/controller/CategoryController.php';
+include 'php/controller/StockController.php';
 
+$categories = getCategoryDetails();
 $recentitems = getRecentItems();
 
 ?>
@@ -50,147 +54,50 @@ $recentitems = getRecentItems();
         <div class="row">
             <div class="span9">
                 <ul class="thumbnails listing-products">
-                    <li class="span3">
-                        <div class="product-box">
-                            <span class="sale_tag"></span>
-                            <a href="product_detail.php"><img alt="" src="themes/images/ladies/9.jpg"></a><br/>
-                            <a href="product_detail.php" class="title">Fusce id molestie massa</a><br/>
-                            <a href="#" class="category">Phasellus consequat</a>
 
-                            <p class="price">$341</p>
-                        </div>
-                    </li>
-                    <li class="span3">
-                        <div class="product-box">
-                            <a href="product_detail.php"><img alt="" src="themes/images/ladies/8.jpg"></a><br/>
-                            <a href="product_detail.php" class="title">Praesent tempor sem</a><br/>
-                            <a href="#" class="category">Erat gravida</a>
+                    <?php foreach ($recentitems as $item) { ?>
+                        <li class="span3">
+                            <div class="product-box">
+                                <span class="sale_tag"></span>
+                                <a href="product_detail.php"><img alt="" src="themes/images/ladies/9.jpg"></a><br/>
+                                <a href="product_detail.php" class="title"><?php echo $item['Name']; ?></a><br/>
 
-                            <p class="price">$28</p>
-                        </div>
-                    </li>
-                    <li class="span3">
-                        <div class="product-box">
-                            <span class="sale_tag"></span>
-                            <a href="product_detail.php"><img alt="" src="themes/images/ladies/7.jpg"></a><br/>
-                            <a href="product_detail.php" class="title">Wuam ultrices rutrum</a><br/>
-                            <a href="#" class="category">Suspendisse aliquet</a>
+                                <?php
+                                    $categoryname = getCategoryName($item['CategoryId']);
+                                    $isinstock = isItemInStock($item['MedicineId']);
+                                ?>
 
-                            <p class="price">$341</p>
-                        </div>
-                    </li>
-                    <li class="span3">
-                        <div class="product-box">
-                            <span class="sale_tag"></span>
-                            <a href="product_detail.php"><img alt="" src="themes/images/ladies/6.jpg"></a><br/>
-                            <a href="product_detail.php" class="title">Praesent tempor sem sodales</a><br/>
-                            <a href="#" class="category">Nam imperdiet</a>
+                                <a class="category"><?php echo $categoryname; ?></a>
+                                <p class="price"><?php echo $item['Price']; ?></p>
+                                <a class="category"><?php echo $isinstock; ?></a>
+                            </div>
+                        </li>
+                        <?php
+                    } ?>
 
-                            <p class="price">$49</p>
-                        </div>
-                    </li>
-                    <li class="span3">
-                        <div class="product-box">
-                            <a href="product_detail.php"><img alt="" src="themes/images/ladies/1.jpg"></a><br/>
-                            <a href="product_detail.php" class="title">Fusce id molestie massa</a><br/>
-                            <a href="#" class="category">Congue diam congue</a>
-
-                            <p class="price">$35</p>
-                        </div>
-                    </li>
-                    <li class="span3">
-                        <div class="product-box">
-                            <a href="product_detail.php"><img alt="" src="themes/images/ladies/2.jpg"></a><br/>
-                            <a href="product_detail.php" class="title">Tempor sem sodales</a><br/>
-                            <a href="#" class="category">Gravida placerat</a>
-
-                            <p class="price">$61</p>
-                        </div>
-                    </li>
-                    <li class="span3">
-                        <div class="product-box">
-                            <a href="product_detail.php"><img alt="" src="themes/images/ladies/3.jpg"></a><br/>
-                            <a href="product_detail.php" class="title">Quam ultrices rutrum</a><br/>
-                            <a href="#" class="category">Orci et nisl iaculis</a>
-
-                            <p class="price">$233</p>
-                        </div>
-                    </li>
-                    <li class="span3">
-                        <div class="product-box">
-                            <a href="product_detail.php"><img alt="" src="themes/images/ladies/4.jpg"></a><br/>
-                            <a href="product_detail.php" class="title">Tempor sem sodales</a><br/>
-                            <a href="#" class="category">Urna nec lectus mollis</a>
-
-                            <p class="price">$134</p>
-                        </div>
-                    </li>
-                    <li class="span3">
-                        <div class="product-box">
-                            <a href="product_detail.php"><img alt="" src="themes/images/ladies/5.jpg"></a><br/>
-                            <a href="product_detail.php" class="title">Luctus quam ultrices</a><br/>
-                            <a href="#" class="category">Suspendisse aliquet</a>
-
-                            <p class="price">$261</p>
-                        </div>
-                    </li>
                 </ul>
                 <hr>
-                <div class="pagination pagination-small pagination-centered">
-                    <ul>
-                        <li><a href="#">Prev</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">Next</a></li>
-                    </ul>
-                </div>
+
+                <!--                <div class="pagination pagination-small pagination-centered">-->
+                <!--                    <ul>-->
+                <!--                        <li><a href="#">Prev</a></li>-->
+                <!--                        <li class="active"><a href="#">1</a></li>-->
+                <!--                        <li><a href="#">2</a></li>-->
+                <!--                        <li><a href="#">3</a></li>-->
+                <!--                        <li><a href="#">4</a></li>-->
+                <!--                        <li><a href="#">Next</a></li>-->
+                <!--                    </ul>-->
+                <!--                </div>-->
+
             </div>
 
             <?php include 'sidebar.php' ?>
 
         </div>
     </section>
-    <section id="footer-bar">
-        <div class="row">
-            <div class="span3">
-                <h4>Navigation</h4>
-                <ul class="nav">
-                    <li><a href="index.php">Homepage</a></li>
-                    <li><a href="./about.html">About Us</a></li>
-                    <li><a href="contact.php">Contac Us</a></li>
-                    <li><a href="cart.php">Your Cart</a></li>
-                    <li><a href="login.php">Login</a></li>
-                </ul>
-            </div>
-            <div class="span4">
-                <h4>My Account</h4>
-                <ul class="nav">
-                    <li><a href="#">My Account</a></li>
-                    <li><a href="#">Order History</a></li>
-                    <li><a href="#">Wish List</a></li>
-                    <li><a href="#">Newsletter</a></li>
-                </ul>
-            </div>
-            <div class="span5">
-                <p class="logo"><img src="themes/images/logo.png" class="site_logo" alt=""></p>
 
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. the Lorem Ipsum has been
-                    the industry's standard dummy text ever since the you.</p>
-                <br/>
-						<span class="social_icons">
-							<a class="facebook" href="#">Facebook</a>
-							<a class="twitter" href="#">Twitter</a>
-							<a class="skype" href="#">Skype</a>
-							<a class="vimeo" href="#">Vimeo</a>
-						</span>
-            </div>
-        </div>
-    </section>
-    <section id="copyright">
-        <span>Copyright 2013 bootstrappage template  All right reserved.</span>
-    </section>
+    <?php include 'footer.php'; ?>
+
 </div>
 <script src="themes/js/common.js"></script>
 </body>
