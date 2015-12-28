@@ -51,7 +51,16 @@
                             <label class="control-label">User Name</label>
 
                             <div class="controls">
-                                <input type="text" placeholder="" id="username" name="userName"
+                                <input type="text" placeholder="User Name" id="username" name="username"
+                                       class="input-xlarge">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">Full Name</label>
+
+                            <div class="controls">
+                                <input type="text" placeholder="Full Name" id="fullname" name="fullname"
                                        class="input-xlarge">
                             </div>
                         </div>
@@ -60,7 +69,7 @@
                             <label class="control-label">Address</label>
 
                             <div class="controls">
-                                <input type="text" placeholder="" id="address" name="address"
+                                <input type="text" placeholder="Address" id="address" name="address"
                                        class="input-xlarge">
                             </div>
                         </div>
@@ -69,7 +78,7 @@
                             <label class="control-label">Telephone</label>
 
                             <div class="controls">
-                                <input type="text" placeholder="" id="telephone" name="telephone"
+                                <input type="text" placeholder="Telephone" id="telephone" name="telephone"
                                        class="input-xlarge">
                             </div>
                         </div>
@@ -78,7 +87,7 @@
                             <label class="control-label">NIC</label>
 
                             <div class="controls">
-                                <input type="text" placeholder="" id="nic" name="nic"
+                                <input type="text" placeholder="NIC" id="nic" name="nic"
                                        class="input-xlarge">
                             </div>
                         </div>
@@ -87,7 +96,7 @@
                             <label class="control-label">Password</label>
 
                             <div class="controls">
-                                <input type="password" placeholder="" id="password" name="password"
+                                <input type="password" placeholder="Password" id="password" name="password"
                                        class="input-xlarge">
                             </div>
                         </div>
@@ -96,10 +105,12 @@
                             <label class="control-label">Retype Password</label>
 
                             <div class="controls">
-                                <input type="password" placeholder="" id="retypepassword" name="retypepassword"
+                                <input type="password" placeholder="Password" id="retypepassword" name="retypepassword"
                                        class="input-xlarge">
                             </div>
                         </div>
+
+                        <input type="hidden" name="addUser" value="user" >
 
                         <div class="control-group">
                             <input tabindex="3" class="btn btn-primary" type="submit"
