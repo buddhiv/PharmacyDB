@@ -17,3 +17,13 @@ function getRecentItems()
 
     return $resultset;
 }
+
+function getItemsListForHome(){
+    $link = getConnection();
+    $sql = "SELECT * FROM fmedicine DESC LIMIT 8";
+
+    $resultset = mysqli_query($link, $sql);
+    mysqli_close($link);
+
+    return $resultset;
+}
