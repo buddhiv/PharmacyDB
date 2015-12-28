@@ -51,3 +51,14 @@ function getItemDetailsById($medicineId)
     $row = mysqli_fetch_assoc($resultset);
     return $row;
 }
+
+function getItemsByCategoryId($categoryId)
+{
+    $link = getConnection();
+    $sql = "SELECT * FROM fmedicine WHERE CategoryId = '" . $categoryId . "'";
+
+    $resultset = mysqli_query($link, $sql);
+    mysqli_close($link);
+
+    return $resultset;
+}
