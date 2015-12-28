@@ -1,6 +1,7 @@
 <?php
 include 'php/controller/CategoryController.php';
 
+
 $categories = getCategoryDetails();
 
 ?>
@@ -130,7 +131,7 @@ $categories = getCategoryDetails();
 
                         <?php foreach ($categories as $category) {
                             ?>
-                            <li><a href="products.php"><?php echo $category['title']; ?></a></li>
+                            <li><a href="products.php"><?php echo $category['Title']; ?></a></li>
                             <?php
                         } ?>
                     </ul>

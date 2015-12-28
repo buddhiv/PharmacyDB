@@ -13,6 +13,20 @@ class Category
     private $remarks;
 
     /**
+     * Category constructor.
+     * @param $id
+     * @param $remarks
+     * @param $title
+     */
+    public function __construct($id, $remarks, $title)
+    {
+        $this->id = $id;
+        $this->remarks = $remarks;
+        $this->title = $title;
+    }
+
+
+    /**
      * @return mixed
      */
     public function getTitle()

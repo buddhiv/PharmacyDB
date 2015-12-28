@@ -51,7 +51,7 @@
                             <label class="control-label">User Name</label>
 
                             <div class="controls">
-                                <input type="text" placeholder="" id="username"
+                                <input type="text" placeholder="" id="username" name="userName"
                                        class="input-xlarge">
                             </div>
                         </div>
@@ -60,7 +60,25 @@
                             <label class="control-label">Address</label>
 
                             <div class="controls">
-                                <input type="text" placeholder="" id="address"
+                                <input type="text" placeholder="" id="address" name="address"
+                                       class="input-xlarge">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">Telephone</label>
+
+                            <div class="controls">
+                                <input type="text" placeholder="" id="telephone" name="telephone"
+                                       class="input-xlarge">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">NIC</label>
+
+                            <div class="controls">
+                                <input type="text" placeholder="" id="nic" name="nic"
                                        class="input-xlarge">
                             </div>
                         </div>
@@ -85,7 +103,7 @@
 
                         <div class="control-group">
                             <input tabindex="3" class="btn btn-primary" type="submit"
-                                   value="Sign In">
+                                   value="Sign Up">
                             <hr>
                             <p class="reset"><a tabindex="4" href="login.php">Already have an account?</a></p>
                         </div>

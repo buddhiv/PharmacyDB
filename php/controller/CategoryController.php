@@ -6,16 +6,14 @@
  * Date: 12/28/2015
  * Time: 1:38 AM
  */
-include '../mysql_connector.php';
+include 'mysql_connector1.php';
 
-class CategoryController
+function getCategoryDetails()
 {
-    public function getCategoryDetails(){
-        $sql = "SELECT * FROM category";
+    $link = getConnection();
+    $sql = "SELECT * FROM fcategory";
 
-        $resultset = mysqli_query(getConnection(), $sql);
-        return $resultset;
-    }
+    $resultset = mysqli_query($link, $sql);
 
-
+    return $resultset;
 }
