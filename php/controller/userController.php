@@ -41,6 +41,7 @@ function addUser()
 function logIn()
 {
     session_start();
+    include '../mysql_connector.php';
     $userName = preg_replace('#[^A-Za-z0-9]#', '', $_POST["username"]);
     $password = preg_replace('#[^A-Za-z0-9]#', '', $_POST["password"]);
 

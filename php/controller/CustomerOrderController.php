@@ -49,7 +49,7 @@ function addOrder($userName, $password)
                 $unitPrice = $row["Price"];
             }
             $quantity = $each_medicine['quantity'];
-            
+
             mysqli_query($connection,"INSERT INTO fcustomerorderdetails VALUES ('$orderId','$medicineId',$quantity,$unitPrice)") ;
 
         }
