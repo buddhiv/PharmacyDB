@@ -47,20 +47,33 @@ function logIn()
     $password = preg_replace('#[^A-Za-z0-9]#', '', $_POST["password"]);
 
     $connection = getConnection();
-    $sql = mysqli_query($connection, "SELECT CustomerId FROM fcustomer WHERE username='$userName' AND password='$password' LIMIT 1");
 
-    $existCount = mysqli_num_rows($sql);
-    if ($existCount == 1) {
-        while ($row = mysqli_fetch_array($sql)) {
-            $id = $row["CustomerId"];
+    if ($userName != 'administrator') {
+        $sql = mysqli_query($connection, "SELECT CustomerId FROM fcustomer WHERE username='$userName' AND password='$password' LIMIT 1");
+
+        $existCount = mysqli_num_rows($sql);
+        if ($existCount == 1) {
+            while ($row = mysqli_fetch_array($sql)) {
+                $id = $row["CustomerId"];
+            }
+            $_SESSION["customerId"] = $id;
+            header('Location: http://localhost/PharmacyDB/index.php');
+        } else {
+            header('Location: http://localhost/PharmacyDB/login.php?attempt=1');
         }
-        $_SESSION["customerId"] = $id;
-        header('Location: http://localhost/PharmacyDB/index.php');
     } else {
+        $sql = 'SELECT * FROM fadmin';
 
-        header('Location: http://localhost/PharmacyDB/login.php?attempt=1');
+        $resultset = mysqli_query($connection, $sql);
+        $row = mysqli_fetch_assoc($resultset);
 
+        if ($row['PassKey'] == $password) {
+            header('Location: http://localhost/PharmacyDB/adminpanel.php');
+        } else {
+            header('Location: http://localhost/PharmacyDB/login.php?attempt=1');
+        }
     }
+
     $connection->close();
 
 }
