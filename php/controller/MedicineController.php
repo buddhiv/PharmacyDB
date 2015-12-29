@@ -7,6 +7,23 @@
  * Time: 1:24 PM
  */
 
+if (isset($_POST['remove'])) {
+    removeMedicine($_POST['medicineId']);
+
+    header('Location: http://localhost/PharmacyDB/adminpanel.php?option=2');
+}
+
+function removeMedicine($medicineId)
+{
+    $link = getConnection();
+    $sql = "DELETE FROM fmedicine WHERE MedicineId='" . $medicineId . "'";
+
+    $resultset = mysqli_query($link, $sql);
+    mysqli_close($link);
+
+    return $resultset;
+}
+
 function getRecentItems()
 {
     $link = getConnection();

@@ -6,6 +6,23 @@
  * Time: 4:59 PM
  */
 
+if (isset($_POST['remove'])) {
+    removeStock($_POST['stockId']);
+
+    header('Location: http://localhost/PharmacyDB/adminpanel.php?option=4');
+}
+
+function removeStock($stockId)
+{
+    $link = getConnection();
+    $sql = "DELETE FROM fstock WHERE StockId='" . $stockId . "'";
+
+    $resultset = mysqli_query($link, $sql);
+    mysqli_close($link);
+
+    return $resultset;
+}
+
 function isItemInStock($medicineid)
 {
     $link = getConnection();
@@ -15,9 +32,9 @@ function isItemInStock($medicineid)
     mysqli_close($link);
 
     $quantity = "OUT OF STOCK";
-    if($resultset != null) {
+    if ($resultset != null) {
         $row = mysqli_fetch_assoc($resultset);
-        if($row['Quantity'] > 0){
+        if ($row['Quantity'] > 0) {
             $quantity = "IN STOCK";
         }
     }

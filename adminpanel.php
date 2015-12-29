@@ -1,5 +1,6 @@
 <?php
 include 'php/mysql_connector.php';
+
 include 'php/controller/MedicineController.php';
 include 'php/controller/CategoryController.php';
 include 'php/controller/StockController.php';
@@ -88,7 +89,12 @@ if (isset($_SESSION["customerId"])) {
                                     <td><?php echo $user['Address']; ?></td>
                                     <td><?php echo $user['NIC']; ?></td>
                                     <td><?php echo $user['Telephone']; ?></td>
-                                    <td></td>
+                                    <form method="POST" action="./php/controller/UserController.php"
+                                          name="removeUser">
+                                        <td><input class="btn btn-danger" name="remove" type="submit" value="Remove"></td>
+
+                                        <input name="userId" type="hidden" value="<?php echo $user['CustomerId']; ?>" />
+                                    </form>
                                 </tr>
                                 <?php
                             }
@@ -147,7 +153,12 @@ if (isset($_SESSION["customerId"])) {
                                     <td><?php echo $med['SupplierId']; ?></td>
                                     <td><?php echo $med['Name']; ?></td>
                                     <td><?php echo $med['Price']; ?></td>
-                                    <td></td>
+                                    <form method="POST" action="./php/controller/MedicineController.php"
+                                          name="removeMedicine">
+                                        <td><input class="btn btn-danger" name="remove" type="submit" value="Remove"></td>
+
+                                        <input name="medicineId" type="hidden" value="<?php echo $med['MedicineId']; ?>" />
+                                    </form>
                                 </tr>
                                 <?php
                             }
@@ -209,7 +220,12 @@ if (isset($_SESSION["customerId"])) {
                                     <td><?php echo $order['Sent']; ?></td>
                                     <td><?php echo $order['ActualCost']; ?></td>
                                     <td><?php echo $order['CountPerUnit']; ?></td>
-                                    <td></td>
+                                    <form method="POST" action="./php/controller/OrderController.php"
+                                          name="removeOrder">
+                                        <td><input class="btn btn-danger" name="remove" type="submit" value="Remove"></td>
+
+                                        <input name="orderId" type="hidden" value="<?php echo $order['OrderId']; ?>" />
+                                    </form>
                                 </tr>
                                 <?php
                             }
@@ -268,11 +284,12 @@ if (isset($_SESSION["customerId"])) {
                                     <td><?php echo $stock['Price']; ?></td>
                                     <td><?php echo $stock['Quantity']; ?></td>
                                     <td><?php echo $stock['RecievedOn']; ?></td>
+
                                     <form method="POST" action="./php/controller/StockController.php"
                                           name="removeStock">
-                                        <td><input class="btn btn-danger" type="submit" value="Remove"></td>
+                                        <td><input class="btn btn-danger" name="remove" type="submit" value="Remove"></td>
 
-                                        <input name="removeStock" type="hidden" <?php echo "value=$i" ?> />
+                                        <input name="stockId" type="hidden" value="<?php echo $stock['StockId']; ?>" />
                                     </form>
                                 </tr>
                                 <?php

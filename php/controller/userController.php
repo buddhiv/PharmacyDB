@@ -12,6 +12,24 @@ if (isset($_POST["addUser"])) {
     logIn();
 }
 
+if (isset($_POST['remove'])) {
+    removeUser($_POST['userId']);
+
+    header('Location: http://localhost/PharmacyDB/adminpanel.php?option=1');
+}
+
+function removeUser($userId)
+{
+    $link = getConnection();
+    $sql = "DELETE FROM fcustomer WHERE CustomerId='" . $userId . "'";
+
+    $resultset = mysqli_query($link, $sql);
+    mysqli_close($link);
+
+    return $resultset;
+}
+
+
 function addUser()
 {
     $userName = preg_replace('#[^A-Za-z0-9]#', '', $_POST["username"]);
