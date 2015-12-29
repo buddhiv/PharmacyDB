@@ -60,14 +60,6 @@ if (isset($_SESSION['customerId'])) {
                 </li>
                 <li>
                     <img src="themes/images/carousel/banner-2.jpg" alt=""/>
-
-                    <div class="intro">
-                        <h1>Mid season sale</h1>
-
-                        <p><span>Up to 50% Off</span></p>
-
-                        <p><span>On selected items online and in stores</span></p>
-                    </div>
                 </li>
             </ul>
         </div>
@@ -83,11 +75,7 @@ if (isset($_SESSION['customerId'])) {
                     <div class="span12">
                         <h4 class="title">
                             <span class="pull-left"><span class="text"><span
-                                        class="line">Feature <strong>Products</strong></span></span></span>
-									<span class="pull-right">
-										<a class="left button" href="#myCarousel" data-slide="prev"></a><a
-                                            class="right button" href="#myCarousel" data-slide="next"></a>
-									</span>
+                                        class="line">Featured <strong>Products</strong></span></span></span>
                         </h4>
 
                         <div id="myCarousel" class="myCarousel carousel slide">

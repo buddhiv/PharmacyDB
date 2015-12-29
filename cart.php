@@ -13,11 +13,13 @@ if (!isset($_SESSION['customerId'])) {
 include "./php/controller/CartController.php";
 include "./php/mysql_connector.php";
 include "./php/controller/MedicineController.php";
+include "./php/controller/CategoryController.php";
 
 if (isset($_POST['medicineId'])) {
     addMedicineToCart($_POST['medicineId'], $_POST['quantity']);
 }
 
+$categories = getCategoryDetails();
 ?>
 
 

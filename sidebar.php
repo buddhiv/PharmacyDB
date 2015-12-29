@@ -8,7 +8,7 @@
             <?php foreach ($categories as $category) {
                 ?>
                 <li>
-                    <a href="<?php echo 'products.php?categoryId=' . $category['Id'] ?>"><?php echo $category['Title']; ?></a>
+                    <a href="<?php echo 'products.php?categoryId=' . $category['CategoryId'] ?>"><?php echo $category['Title']; ?></a>
                 </li>
                 <?php
             } ?>
