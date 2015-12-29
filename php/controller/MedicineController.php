@@ -62,3 +62,13 @@ function getItemsByCategoryId($categoryId)
 
     return $resultset;
 }
+
+function getAllMedicineDetails(){
+    $link = getConnection();
+    $sql = "SELECT * FROM fmedicine";
+
+    $resultset = mysqli_query($link, $sql);
+    mysqli_close($link);
+
+    return $resultset;
+}
