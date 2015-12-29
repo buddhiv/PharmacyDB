@@ -16,7 +16,12 @@ include "./php/controller/MedicineController.php";
 include "./php/controller/CategoryController.php";
 
 if (isset($_POST['medicineId'])) {
-    addMedicineToCart($_POST['medicineId'], $_POST['quantity']);
+    $result = addMedicineToCart($_POST['medicineId'], $_POST['quantity']);
+    if($result==true){
+        header("location:cart.php");
+    }else{
+        header("location:product_detail.php?medicineId=".$_POST['medicineId']);
+    }
 }
 
 $categories = getCategoryDetails();
