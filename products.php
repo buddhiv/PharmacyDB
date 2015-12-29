@@ -124,7 +124,7 @@ if (isset($_SESSION["customerId"])) {
 
                         <?php
                         $items = getItemsByCategoryId($categoryId);
-                        foreach ($recentitems as $item) {
+                        foreach ($items as $item) {
                             $categoryname = getCategoryName($item['CategoryId']);
                             $isinstock = isItemInStock($item['MedicineId']);
 
