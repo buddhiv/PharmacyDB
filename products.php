@@ -5,7 +5,6 @@ include 'php/controller/CategoryController.php';
 include 'php/controller/StockController.php';
 
 $categories = getCategoryDetails();
-$recentitems = getRecentItems();
 
 ?>
 
@@ -58,53 +57,119 @@ if (isset($_SESSION["customerId"])) {
     </section>
     <section class="main-content">
 
-        <div class="row">
-            <div class="span9">
-                <h4 class="title"><span class="text"><strong>Recent</strong> Products</span></h4>
-                <ul class="thumbnails listing-products">
+        <?php
+        if (!isset($_GET['categoryId'])) {
+            ?>
 
-                    <?php foreach ($recentitems as $item) {
-                        $categoryname = getCategoryName($item['CategoryId']);
-                        $isinstock = isItemInStock($item['MedicineId']);
+            <div class="row">
+                <div class="span9">
+                    <h4 class="title"><span class="text"><strong>Recent</strong> Products</span></h4>
+                    <ul class="thumbnails listing-products">
 
-                        $medicineId = $item['MedicineId'];
-                        ?>
-                        <li class="span3">
-                            <div class="product-box">
-                                <span class="sale_tag"></span>
-                                <a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>">
-                                    <img alt="" src="<?php echo './images/products/' . $medicineId.'.jpg' ?>"/></a>
-                                <br/>
-                                <a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>"
-                                   class="title"><?php echo $item['Name']; ?></a><br/>
-                                <a class="category"><?php echo $categoryname; ?></a>
-
-                                <p class="price"><?php echo $item['Price']; ?></p>
-                                <a class="category"><?php echo $isinstock; ?></a>
-                            </div>
-                        </li>
                         <?php
-                    } ?>
+                        $recentitems = getRecentItems();
+                        foreach ($recentitems as $item) {
+                            $categoryname = getCategoryName($item['CategoryId']);
+                            $isinstock = isItemInStock($item['MedicineId']);
 
-                </ul>
-                <hr>
+                            $medicineId = $item['MedicineId'];
+                            ?>
+                            <li class="span3">
+                                <div class="product-box">
+                                    <span class="sale_tag"></span>
+                                    <a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>">
+                                        <img alt=""
+                                             src="<?php echo './images/products/' . $medicineId . '.jpg' ?>"/></a>
+                                    <br/>
+                                    <a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>"
+                                       class="title"><?php echo $item['Name']; ?></a><br/>
+                                    <a class="category"><?php echo $categoryname; ?></a>
 
-                <!--                <div class="pagination pagination-small pagination-centered">-->
-                <!--                    <ul>-->
-                <!--                        <li><a href="#">Prev</a></li>-->
-                <!--                        <li class="active"><a href="#">1</a></li>-->
-                <!--                        <li><a href="#">2</a></li>-->
-                <!--                        <li><a href="#">3</a></li>-->
-                <!--                        <li><a href="#">4</a></li>-->
-                <!--                        <li><a href="#">Next</a></li>-->
-                <!--                    </ul>-->
-                <!--                </div>-->
+                                    <p class="price"><?php echo $item['Price']; ?></p>
+                                    <a class="category"><?php echo $isinstock; ?></a>
+                                </div>
+                            </li>
+                            <?php
+                        } ?>
+
+                    </ul>
+                    <hr>
+
+                    <!--                <div class="pagination pagination-small pagination-centered">-->
+                    <!--                    <ul>-->
+                    <!--                        <li><a href="#">Prev</a></li>-->
+                    <!--                        <li class="active"><a href="#">1</a></li>-->
+                    <!--                        <li><a href="#">2</a></li>-->
+                    <!--                        <li><a href="#">3</a></li>-->
+                    <!--                        <li><a href="#">4</a></li>-->
+                    <!--                        <li><a href="#">Next</a></li>-->
+                    <!--                    </ul>-->
+                    <!--                </div>-->
+
+                </div>
+
+                <?php include 'sidebar.php' ?>
 
             </div>
 
-            <?php include 'sidebar.php' ?>
+            <?php
+        }else{
+            $categoryId = $_GET['categoryId'];
 
-        </div>
+            ?>
+            <div class="row">
+                <div class="span9">
+                    <h4 class="title"><span class="text"><strong>Recent</strong> Products</span></h4>
+                    <ul class="thumbnails listing-products">
+
+                        <?php
+                        $items = getItemsByCategoryId($categoryId);
+                        foreach ($recentitems as $item) {
+                            $categoryname = getCategoryName($item['CategoryId']);
+                            $isinstock = isItemInStock($item['MedicineId']);
+
+                            $medicineId = $item['MedicineId'];
+                            ?>
+                            <li class="span3">
+                                <div class="product-box">
+                                    <span class="sale_tag"></span>
+                                    <a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>">
+                                        <img alt=""
+                                             src="<?php echo './images/products/' . $medicineId . '.jpg' ?>"/></a>
+                                    <br/>
+                                    <a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>"
+                                       class="title"><?php echo $item['Name']; ?></a><br/>
+                                    <a class="category"><?php echo $categoryname; ?></a>
+
+                                    <p class="price"><?php echo $item['Price']; ?></p>
+                                    <a class="category"><?php echo $isinstock; ?></a>
+                                </div>
+                            </li>
+                            <?php
+                        } ?>
+
+                    </ul>
+                    <hr>
+
+                    <!--                <div class="pagination pagination-small pagination-centered">-->
+                    <!--                    <ul>-->
+                    <!--                        <li><a href="#">Prev</a></li>-->
+                    <!--                        <li class="active"><a href="#">1</a></li>-->
+                    <!--                        <li><a href="#">2</a></li>-->
+                    <!--                        <li><a href="#">3</a></li>-->
+                    <!--                        <li><a href="#">4</a></li>-->
+                    <!--                        <li><a href="#">Next</a></li>-->
+                    <!--                    </ul>-->
+                    <!--                </div>-->
+
+                </div>
+
+                <?php include 'sidebar.php' ?>
+
+            </div>
+        <?php
+        }
+        ?>
     </section>
 
     <?php include 'footer.php'; ?>
