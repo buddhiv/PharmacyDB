@@ -23,8 +23,6 @@ $categories = getCategoryDetails();
 ?>
 
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,8 +81,8 @@ $categories = getCategoryDetails();
                     <tbody>
 
                     <?php
-                        $cardTotal = 0;
-                        $i=0;
+                    $cardTotal = 0;
+                    $i = 0;
                     if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
                         echo "<h2 align='center'>Your shopping cart is empty</h2>";
                     } else {
@@ -102,14 +100,15 @@ $categories = getCategoryDetails();
                             $cardTotal = $cardTotal + $amount;
                             ?>
                             <tr>
-                                <form method="POST" action="./php/controller/CartController.php" name="removeMedicineForm">
-                                <td>
-                                    <input class="btn btn-danger" type="submit" value="Remove"></td>
-                                    <input name="removeItemFromCart" type="hidden"  <?php echo "value=$i"?> />
+                                <form method="POST" action="./php/controller/CartController.php"
+                                      name="removeMedicineForm">
+                                    <td>
+                                        <input class="btn btn-danger" type="submit" value="Remove"></td>
+                                    <input name="removeItemFromCart" type="hidden" <?php echo "value=$i" ?> />
                                 </form>
 
                                 <td><a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>"><img alt=""
-                                                                      src="<?php echo './images/products/' . $medicineId . '.jpg' ?>"></a>
+                                                                                                                src="<?php echo './images/products/' . $medicineId . '.jpg' ?>"></a>
                                 </td>
                                 <td><?php echo $name ?></td>
                                 <td><?php echo $quantity ?></td>
@@ -117,7 +116,7 @@ $categories = getCategoryDetails();
                                 <td>Rs. <?php echo $amount ?></td>
                             </tr>
 
-                        <?php
+                            <?php
                             $i++;
                         }
                     }
@@ -128,14 +127,14 @@ $categories = getCategoryDetails();
                 <hr/>
 
                 <h4 class="right">
-                    <strong>Total  : Rs. <?php echo $cardTotal ?> </strong><br>
+                    <strong>Total : Rs. <?php echo $cardTotal ?> </strong><br>
                 </h4>
                 <hr/>
                 <form name="clearCartForm" action="./php/controller/CartController.php" method="POST">
-                <p class="buttons left">
-                    <input name="clearCart" type="hidden" value="clearCart" />
-                    <button class="btn btn-danger" type="submit">Clear Cart</button>
-                </p>
+                    <p class="buttons left">
+                        <input name="clearCart" type="hidden" value="clearCart"/>
+                        <button class="btn btn-danger" type="submit">Clear Cart</button>
+                    </p>
                 </form>
 
                 <p class="buttons right">

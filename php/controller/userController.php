@@ -6,8 +6,6 @@
  * Time: 3:47 PM
  */
 
-include_once "../mysql_connector.php";
-
 if (isset($_POST["addUser"])) {
     addUser();
 } elseif (isset($_POST["login"])) {
@@ -78,5 +76,13 @@ function logIn()
 
 }
 
+function getAllUserDetails(){
+    $link = getConnection();
+    $sql = "SELECT * FROM fcustomer";
 
+    $resultset = mysqli_query($link, $sql);
+    mysqli_close($link);
+
+    return $resultset;
+}
 ?>

@@ -3,9 +3,7 @@ include 'php/mysql_connector.php';
 include 'php/controller/MedicineController.php';
 include 'php/controller/CategoryController.php';
 include 'php/controller/StockController.php';
-
-$categories = getCategoryDetails();
-
+include 'php/controller/UserController.php';
 ?>
 
 <!DOCTYPE html>
@@ -63,34 +61,40 @@ if (isset($_SESSION["customerId"])) {
 
             <div class="row">
                 <div class="span9">
-                    <h4 class="title"><span class="text"><strong>Customer</strong> Information</span></h4>
+                    <h4 class="title"><span class="text"><strong>User</strong> Information</span></h4>
                     <ul class="thumbnails listing-products">
 
-                        <?php
-                        $recentitems = getRecentItems();
-                        foreach ($recentitems as $item) {
-                            $categoryname = getCategoryName($item['CategoryId']);
-                            $isinstock = isItemInStock($item['MedicineId']);
+                        <table class="table table-striped" style="margin-left: 20px">
+                            <thead>
+                            <tr>
+                                <th>Customer ID</th>
+                                <th>Name</th>
+                                <th>Address</th>
+                                <th>Telephone</th>
+                                <th>NIC</th>
+                                <th></th>
+                            </tr>
+                            <tbody>
 
-                            $medicineId = $item['MedicineId'];
-                            ?>
-                            <li class="span3">
-                                <div class="product-box">
-                                    <span class="sale_tag"></span>
-                                    <a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>">
-                                        <img alt=""
-                                             src="<?php echo './images/products/' . $medicineId . '.jpg' ?>"/></a>
-                                    <br/>
-                                    <a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>"
-                                       class="title"><?php echo $item['Name']; ?></a><br/>
-                                    <a class="category"><?php echo $categoryname; ?></a>
-
-                                    <p class="price"><?php echo $item['Price']; ?></p>
-                                    <a class="category"><?php echo $isinstock; ?></a>
-                                </div>
-                            </li>
                             <?php
-                        } ?>
+                            $users = getAllUserDetails();
+
+                            foreach ($users as $user) {
+                                ?>
+                                <tr>
+                                    <td><?php echo $user['CustomerId']; ?></td>
+                                    <td><?php echo $user['FullName']; ?></td>
+                                    <td><?php echo $user['Address']; ?></td>
+                                    <td><?php echo $user['NIC']; ?></td>
+                                    <td><?php echo $user['Telephone']; ?></td>
+                                    <td></td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
+                            </tbody>
+                            </thead>
+                        </table>
 
                     </ul>
                     <hr>
@@ -117,34 +121,39 @@ if (isset($_SESSION["customerId"])) {
             ?>
             <div class="row">
                 <div class="span9">
-                    <h4 class="title"><span class="text"><strong>Medicine</strong> Information</span></h4>
+                    <h4 class="title"><span class="text"><strong>User</strong> Information</span></h4>
                     <ul class="thumbnails listing-products">
 
-                        <?php
-                        $items = getItemsByCategoryId($categoryId);
-                        foreach ($items as $item) {
-                            $categoryname = getCategoryName($item['CategoryId']);
-                            $isinstock = isItemInStock($item['MedicineId']);
+                        <table class="table table-striped" style="margin-left: 20px">
+                            <thead>
+                            <tr>
+                                <th>Medicine ID</th>
+                                <th>Category ID</th>
+                                <th>Supplier ID</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                            </tr>
+                            <tbody>
 
-                            $medicineId = $item['MedicineId'];
-                            ?>
-                            <li class="span3">
-                                <div class="product-box">
-                                    <span class="sale_tag"></span>
-                                    <a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>">
-                                        <img alt=""
-                                             src="<?php echo './images/products/' . $medicineId . '.jpg' ?>"/></a>
-                                    <br/>
-                                    <a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>"
-                                       class="title"><?php echo $item['Name']; ?></a><br/>
-                                    <a class="category"><?php echo $categoryname; ?></a>
-
-                                    <p class="price"><?php echo $item['Price']; ?></p>
-                                    <a class="category"><?php echo $isinstock; ?></a>
-                                </div>
-                            </li>
                             <?php
-                        } ?>
+                            $medicine = getAllMedicineDetails();
+
+                            foreach ($medicine as $med) {
+                                ?>
+                                <tr>
+                                    <td><?php echo $med['MedicineId']; ?></td>
+                                    <td><?php echo $med['CategoryId']; ?></td>
+                                    <td><?php echo $med['SupplierId']; ?></td>
+                                    <td><?php echo $med['Name']; ?></td>
+                                    <td><?php echo $med['Price']; ?></td>
+                                    <td></td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
+                            </tbody>
+                            </thead>
+                        </table>
 
                     </ul>
                     <hr>
@@ -163,8 +172,8 @@ if (isset($_SESSION["customerId"])) {
                 </div>
 
                 <?php include 'adminsidebar.php' ?>
-
             </div>
+
             <?php
         } else if ($_GET['option'] == 3) {
             ?>
