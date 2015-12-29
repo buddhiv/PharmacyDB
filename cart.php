@@ -1,9 +1,27 @@
 <?php
-include 'php/controller/CategoryController.php';
+//include 'php/controller/CategoryController.php';
 
-$categories = getCategoryDetails();
+//$categories = getCategoryDetails();
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if (!isset($_SESSION['customerId'])) {
+    header('Location: http://localhost/PharmacyDB/login.php');
+}
+
+include "./php/controller/CartController.php";
+include "./php/mysql_connector.php";
+include "./php/controller/MedicineController.php";
+
+if (isset($_POST['medicineId'])) {
+    addMedicineToCart($_POST['medicineId'], $_POST['quantity']);
+}
 
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,64 +79,65 @@ $categories = getCategoryDetails();
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td><input type="checkbox" value="option1"></td>
-                        <td><a href="product_detail.php"><img alt="" src="themes/images/ladies/9.jpg"></a></td>
-                        <td>Fusce id molestie massa</td>
-                        <td><input type="text" placeholder="1" class="input-mini"></td>
-                        <td>$2,350.00</td>
-                        <td>$2,350.00</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" value="option1"></td>
-                        <td><a href="product_detail.php"><img alt="" src="themes/images/ladies/1.jpg"></a></td>
-                        <td>Luctus quam ultrices rutrum</td>
-                        <td><input type="text" placeholder="2" class="input-mini"></td>
-                        <td>$1,150.00</td>
-                        <td>$2,450.00</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" value="option1"></td>
-                        <td><a href="product_detail.php"><img alt="" src="themes/images/ladies/3.jpg"></a></td>
-                        <td>Wuam ultrices rutrum</td>
-                        <td><input type="text" placeholder="1" class="input-mini"></td>
-                        <td>$1,210.00</td>
-                        <td>$1,123.00</td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td><strong>$3,600.00</strong></td>
-                    </tr>
+
+                    <?php
+                        $cardTotal = 0;
+                        $i=0;
+                    if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
+                        echo "<h2 align='center'>Your shopping cart is empty</h2>";
+                    } else {
+                        $cardTotal = 0;
+                        foreach ($_SESSION["cart_array"] as $each_medicine) {
+                            $medicineId = $each_medicine['medicineId'];
+                            $row = getItemDetailsById($medicineId);
+                            $amount = 0;
+
+                            $name = $row["Name"];
+                            $unitPrice = $row["Price"];
+
+                            $quantity = $each_medicine['quantity'];
+                            $amount = $unitPrice * $each_medicine['quantity'];
+                            $cardTotal = $cardTotal + $amount;
+                            ?>
+                            <tr>
+                                <form method="POST" action="./php/controller/CartController.php" name="removeMedicineForm">
+                                <td>
+                                    <input class="btn btn-danger" type="submit" value="Remove"></td>
+                                    <input name="removeItemFromCart" type="hidden"  <?php echo "value=$i"?> />
+                                </form>
+
+                                <td><a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>"><img alt=""
+                                                                      src="<?php echo './images/products/' . $medicineId . '.jpg' ?>"></a>
+                                </td>
+                                <td><?php echo $name ?></td>
+                                <td><?php echo $quantity ?></td>
+                                <td>Rs. <?php echo $unitPrice ?></td>
+                                <td>Rs. <?php echo $amount ?></td>
+                            </tr>
+
+                        <?php
+                            $i++;
+                        }
+                    }
+                    ?>
+
                     </tbody>
                 </table>
-                <h4>What would you like to do next?</h4>
-
-                <p>Choose if you have a discount code or reward points you want to use or would like to estimate your
-                    delivery cost.</p>
-                <label class="radio">
-                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                    Use Coupon Code
-                </label>
-                <label class="radio">
-                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                    Estimate Shipping &amp; Taxes
-                </label>
-                <hr>
-                <p class="cart-total right">
-                    <strong>Sub-Total</strong>: $100.00<br>
-                    <strong>Eco Tax (-2.00)</strong>: $2.00<br>
-                    <strong>VAT (17.5%)</strong>: $17.50<br>
-                    <strong>Total</strong>: $119.50<br>
-                </p>
                 <hr/>
-                <p class="buttons center">
-                    <button class="btn" type="button">Update</button>
-                    <button class="btn" type="button">Continue</button>
-                    <button class="btn btn-inverse" type="submit" id="checkout">Checkout</button>
+
+                <h4 class="right">
+                    <strong>Total  : Rs. <?php echo $cardTotal ?> </strong><br>
+                </h4>
+                <hr/>
+                <form name="clearCartForm" action="./php/controller/CartController.php" method="POST">
+                <p class="buttons left">
+                    <input name="clearCart" type="hidden" value="clearCart" />
+                    <button class="btn btn-danger" type="submit">Clear Cart</button>
+                </p>
+                </form>
+
+                <p class="buttons right">
+                    <button class="btn btn-success" type="submit" id="checkout">Checkout</button>
                 </p>
             </div>
 

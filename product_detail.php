@@ -77,7 +77,7 @@ if (isset($_GET['medicineId'])) {
                             <h4><strong>Price: <?php echo $medicine['Price']; ?></strong></h4>
                         </div>
                         <div class="span5">
-                            <form class="form-inline">
+                            <form class="form-inline" id="addToCartForm" name="addToCartForm" action="./cart.php" method="POST">
                                 <!--                                <label class="checkbox">-->
                                 <!--                                    <input type="checkbox" value=""> Option one is this and that-->
                                 <!--                                </label>-->
@@ -88,7 +88,8 @@ if (isset($_GET['medicineId'])) {
 
                                 <p>&nbsp;</p>
                                 <label>Qty:</label>
-                                <input type="text" id="quantity" name="quantity" class="span1" placeholder="1">
+                                <input type="hidden" name="medicineId" value=<?php echo $medicineId ?> />
+                                <input type="text" id="quantity" name="quantity" class="span1" placeholder="1" value="1">
                                 <button class="btn btn-inverse" type="submit">Add to cart</button>
                             </form>
                         </div>
