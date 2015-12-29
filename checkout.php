@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -47,21 +48,22 @@
 											 <div class="span6 center">
 												<h4>Confirm Customer</h4>
 												<p>Please confirm your account. We have to confirm customer before you purchase.</p>
-												<form action="#" method="post">
+												<form action="./php/controller/CustomerOrderController.php" method="post">
 													<fieldset>
 														<div class="control-group">
 															<label class="control-label">Username</label>
 															<div class="controls">
-																<input type="text" placeholder="Enter your username" id="username" class="input-xlarge">
+																<input type="text" name="username" placeholder="Enter your username" id="username" class="input-xlarge">
 															</div>
 														</div>
 														<div class="control-group">
 															<label class="control-label">Password</label>
 															<div class="controls">
-															<input type="password" placeholder="Enter your password" id="password" class="input-xlarge">
+															<input type="password" name="password" placeholder="Enter your password" id="password" class="input-xlarge">
 															</div>
 														</div>
-														<button class="btn btn-inverse">Continue</button>
+                                                        <input type="hidden" name="addOrder" id="addOrder" value="addOrder">
+														<button class="btn btn-inverse" type="submit">Continue</button>
 													</fieldset>
 												</form>
 											</div>
@@ -76,7 +78,7 @@
 			</section>
 
             <?php include 'footer.php' ?>
-            
+
 		</div>
 		<script src="themes/js/common.js"></script>
     </body>

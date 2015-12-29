@@ -59,6 +59,7 @@ function addUser()
 function logIn()
 {
     session_start();
+    include '../mysql_connector.php';
     $userName = preg_replace('#[^A-Za-z0-9]#', '', $_POST["username"]);
     $password = preg_replace('#[^A-Za-z0-9]#', '', $_POST["password"]);
 
@@ -73,6 +74,8 @@ function logIn()
                 $id = $row["CustomerId"];
             }
             $_SESSION["customerId"] = $id;
+            $_SESSION["custName"] = $userName;
+            $_SESSION["custPassword"] = $password;
             header('Location: http://localhost/PharmacyDB/index.php');
         } else {
             header('Location: http://localhost/PharmacyDB/login.php?attempt=1');
