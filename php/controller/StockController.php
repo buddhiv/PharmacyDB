@@ -24,3 +24,14 @@ function isItemInStock($medicineid)
 
     return $quantity;
 }
+
+function getAllStockDetails()
+{
+    $link = getConnection();
+    $sql = "SELECT * FROM fstock";
+
+    $resultset = mysqli_query($link, $sql);
+    mysqli_close($link);
+
+    return $resultset;
+}

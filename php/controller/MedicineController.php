@@ -63,7 +63,8 @@ function getItemsByCategoryId($categoryId)
     return $resultset;
 }
 
-function getAllMedicineDetails(){
+function getAllMedicineDetails()
+{
     $link = getConnection();
     $sql = "SELECT * FROM fmedicine";
 

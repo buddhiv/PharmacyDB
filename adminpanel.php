@@ -4,6 +4,7 @@ include 'php/controller/MedicineController.php';
 include 'php/controller/CategoryController.php';
 include 'php/controller/StockController.php';
 include 'php/controller/UserController.php';
+include 'php/controller/OrderController.php';
 ?>
 
 <!DOCTYPE html>
@@ -182,31 +183,99 @@ if (isset($_SESSION["customerId"])) {
                     <h4 class="title"><span class="text"><strong>Settings</strong></span></h4>
                     <ul class="thumbnails listing-products">
 
-                        <?php
-                        $items = getItemsByCategoryId($categoryId);
-                        foreach ($items as $item) {
-                            $categoryname = getCategoryName($item['CategoryId']);
-                            $isinstock = isItemInStock($item['MedicineId']);
+                        <table class="table table-striped" style="margin-left: 20px">
+                            <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Supplier ID</th>
+                                <th>Medicine ID</th>
+                                <th>Quantity</th>
+                                <th>Sent</th>
+                                <th>Actual Cost</th>
+                                <th>Count per Unit</th>
+                            </tr>
+                            <tbody>
 
-                            $medicineId = $item['MedicineId'];
-                            ?>
-                            <li class="span3">
-                                <div class="product-box">
-                                    <span class="sale_tag"></span>
-                                    <a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>">
-                                        <img alt=""
-                                             src="<?php echo './images/products/' . $medicineId . '.jpg' ?>"/></a>
-                                    <br/>
-                                    <a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>"
-                                       class="title"><?php echo $item['Name']; ?></a><br/>
-                                    <a class="category"><?php echo $categoryname; ?></a>
-
-                                    <p class="price"><?php echo $item['Price']; ?></p>
-                                    <a class="category"><?php echo $isinstock; ?></a>
-                                </div>
-                            </li>
                             <?php
-                        } ?>
+                            $orders = getAllOrderDetails();
+
+                            foreach ($orders as $order) {
+                                ?>
+                                <tr>
+                                    <td><?php echo $order['OrderId']; ?></td>
+                                    <td><?php echo $order['SupplierId']; ?></td>
+                                    <td><?php echo $order['MedicineId']; ?></td>
+                                    <td><?php echo $order['Quantity']; ?></td>
+                                    <td><?php echo $order['Sent']; ?></td>
+                                    <td><?php echo $order['ActualCost']; ?></td>
+                                    <td><?php echo $order['CountPerUnit']; ?></td>
+                                    <td></td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
+                            </tbody>
+                            </thead>
+                        </table>
+
+                    </ul>
+                    <hr>
+
+                    <!--                <div class="pagination pagination-small pagination-centered">-->
+                    <!--                    <ul>-->
+                    <!--                        <li><a href="#">Prev</a></li>-->
+                    <!--                        <li class="active"><a href="#">1</a></li>-->
+                    <!--                        <li><a href="#">2</a></li>-->
+                    <!--                        <li><a href="#">3</a></li>-->
+                    <!--                        <li><a href="#">4</a></li>-->
+                    <!--                        <li><a href="#">Next</a></li>-->
+                    <!--                    </ul>-->
+                    <!--                </div>-->
+
+                </div>
+
+                <?php include 'adminsidebar.php' ?>
+
+            </div>
+            <?php
+        } else if ($_GET['option'] == 4) {
+            ?>
+            <div class="row">
+                <div class="span9">
+                    <h4 class="title"><span class="text"><strong>Settings</strong></span></h4>
+                    <ul class="thumbnails listing-products">
+
+                        <table class="table table-striped" style="margin-left: 20px">
+                            <thead>
+                            <tr>
+                                <th>Medicine ID</th>
+                                <th>Category ID</th>
+                                <th>Supplier ID</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                            </tr>
+                            <tbody>
+
+                            <?php
+                            $stocks = getAllStockDetails();
+
+                            foreach ($stocks as $stock) {
+                                ?>
+                                <tr>
+                                    <td><?php echo $stock['StockId']; ?></td>
+                                    <td><?php echo $stock['MedicineId']; ?></td>
+                                    <td><?php echo $stock['Remarks']; ?></td>
+                                    <td><?php echo $stock['Price']; ?></td>
+                                    <td><?php echo $stock['Quantity']; ?></td>
+                                    <td><?php echo $stock['RecievedOn']; ?></td>
+                                    <td></td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
+                            </tbody>
+                            </thead>
+                        </table>
 
                     </ul>
                     <hr>
