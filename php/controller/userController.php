@@ -57,6 +57,8 @@ function logIn()
                 $id = $row["CustomerId"];
             }
             $_SESSION["customerId"] = $id;
+            $_SESSION["custName"] = $userName;
+            $_SESSION["custPassword"] = $password;
             header('Location: http://localhost/PharmacyDB/index.php');
         } else {
             header('Location: http://localhost/PharmacyDB/login.php?attempt=1');
