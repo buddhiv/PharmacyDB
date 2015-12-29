@@ -268,7 +268,12 @@ if (isset($_SESSION["customerId"])) {
                                     <td><?php echo $stock['Price']; ?></td>
                                     <td><?php echo $stock['Quantity']; ?></td>
                                     <td><?php echo $stock['RecievedOn']; ?></td>
-                                    <td></td>
+                                    <form method="POST" action="./php/controller/StockController.php"
+                                          name="removeStock">
+                                        <td><input class="btn btn-danger" type="submit" value="Remove"></td>
+
+                                        <input name="removeStock" type="hidden" <?php echo "value=$i" ?> />
+                                    </form>
                                 </tr>
                                 <?php
                             }

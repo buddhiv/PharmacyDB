@@ -6,8 +6,6 @@
  * Time: 3:47 PM
  */
 
-include '../mysql_connector.php';
-
 if (isset($_POST["addUser"])) {
     addUser();
 } elseif (isset($_POST["login"])) {

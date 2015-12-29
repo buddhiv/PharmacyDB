@@ -102,13 +102,13 @@ $categories = getCategoryDetails();
                             <tr>
                                 <form method="POST" action="./php/controller/CartController.php"
                                       name="removeMedicineForm">
-                                    <td>
-                                        <input class="btn btn-danger" type="submit" value="Remove"></td>
+                                    <td><input class="btn btn-danger" type="submit" value="Remove"></td>
+
                                     <input name="removeItemFromCart" type="hidden" <?php echo "value=$i" ?> />
                                 </form>
 
-                                <td><a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>"><img alt=""
-                                                                                                                src="<?php echo './images/products/' . $medicineId . '.jpg' ?>"></a>
+                                <td><a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>">
+                                        <img alt="" src="<?php echo './images/products/' . $medicineId . '.jpg' ?>"></a>
                                 </td>
                                 <td><?php echo $name ?></td>
                                 <td><?php echo $quantity ?></td>
