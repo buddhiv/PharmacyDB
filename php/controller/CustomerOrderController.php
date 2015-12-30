@@ -23,6 +23,11 @@ if (isset($_POST['addOrder'])) {
 
 function addOrder($userName, $password)
 {
+    if (file_exists('../mysql_connector.php')) {
+        require '../mysql_connector.php';
+    } elseif (file_exists('./php/mysql_connector.php')) {
+        require './php/mysql_connector.php';
+    }
     if ($userName == $_SESSION['custName'] && $password == $_SESSION['custPassword']) {
         $connection = getConnection();
         $cartTotal = 0;
@@ -77,9 +82,9 @@ function addOrder($userName, $password)
         }
         unset($_SESSION["cart_array"]);
         $connection->close();
-        header('Location: http://localhost/PharmacyDB/index.php');
+        header('Location: http://localhost/PharmacyDB/index.php?ordersuccess=1');
     } else {
-        header('Location: http://localhost/PharmacyDB/checkout.php');
+        header('Location: http://localhost/PharmacyDB/checkout.php?attempt=1');
     }
 
 

@@ -72,6 +72,25 @@ if (isset($_SESSION['customerId'])) {
         We have introduced an innovative concept centered on superior customer care,<br/> a wide product assortment and
         a host of value additions
     </section>
+    <?php
+    if (isset($_GET['ordersuccess'])) {
+        echo '<script src="./bootstrap/bootbox.min.js"></script>
+            <script>
+            bootbox.dialog({
+                title:"Your purchase has been successful",
+                message: "Your purchase has been successful",
+                buttons: {
+                    success: {
+                        label: "OK",
+                        className: "btn-success"
+                    }
+                }
+            });
+            </script>
+        ';
+    }
+    ?>
+
     <section class="main-content">
         <div class="row">
             <div class="span12">

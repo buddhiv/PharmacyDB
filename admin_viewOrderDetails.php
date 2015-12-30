@@ -6,6 +6,9 @@ include 'php/controller/StockController.php';
 include 'php/controller/UserController.php';
 include 'php/controller/CustomerOrderController.php';
 
+if(!isset($_SESSION['admin'])){
+    header('Location: http://localhost/PharmacyDB/index.php');
+}
 
 
 ?>

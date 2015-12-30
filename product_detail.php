@@ -64,6 +64,25 @@ if (isset($_GET['medicineId'])) {
             <img class="pageBanner" src="themes/images/pageBanner.png" alt="New products">
             <h4 class="title"><span class="text"><strong>Product </strong>Details</span></h4>
         </section>
+        <?php
+        if (isset($_GET['attempt'])) {
+            echo '<script src="./bootstrap/bootbox.min.js"></script>
+            <script>
+            bootbox.dialog({
+                title:"Sorry.",
+                message: "We don\'t have such stock quantity right now.",
+                buttons: {
+                    success: {
+                        label: "OK",
+                        className: "btn-danger"
+                    }
+                }
+            });
+            </script>
+        ';
+        }
+        ?>
+
         <section class="main-content">
             <div class="row">
                 <div class="span9">

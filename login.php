@@ -60,7 +60,7 @@
     <div class="container">
         <div class="row">
             <div class="center">
-                <form action="php/controller/UserController.php" method="post">
+                <form action="php/controller/userController.php" method="post">
                     <fieldset>
                         <div class="control-group">
                             <label class="control-label">User Name</label>

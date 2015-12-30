@@ -1,3 +1,11 @@
+<?php
+if(!isset($_SESSION['admin'])){
+    header('Location: http://localhost/PharmacyDB/index.php');
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

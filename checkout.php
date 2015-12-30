@@ -40,7 +40,26 @@ if(isset($_SESSION['admin'])){
 			<section class="header_text sub">
 			<img class="pageBanner" src="themes/images/pageBanner.png" alt="New products" >
 				<h4><span>Check Out</span></h4>
-			</section>	
+			</section>
+            <?php
+            if (isset($_GET['attempt'])) {
+                echo '<script src="./bootstrap/bootbox.min.js"></script>
+            <script>
+            bootbox.dialog({
+                title:"Wrong username or password.",
+                message: "Please enter correct username and password.",
+                buttons: {
+                    success: {
+                        label: "OK",
+                        className: "btn-danger"
+                    }
+                }
+            });
+            </script>
+        ';
+            }
+            ?>
+
 			<section class="main-content">
 				<div class="row">
 					<div class="span12">

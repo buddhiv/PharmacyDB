@@ -25,7 +25,8 @@ if (isset($_POST['medicineId'])) {
     if($result==true){
         header("location:cart.php");
     }else{
-        header("location:product_detail.php?medicineId=".$_POST['medicineId']);
+        $medicineId = $_POST['medicineId'];
+        header('location: product_detail.php?medicineId='.$medicineId.'&attempt=1');
     }
 }
 
