@@ -7,7 +7,7 @@
  * Time: 1:24 PM
  */
 
-if(file_exists('../mysql_connector.php')){
+if (file_exists('../mysql_connector.php')) {
     include '../mysql_connector.php';
 }
 
@@ -44,6 +44,17 @@ function getItemsListForHome()
 {
     $link = getConnection();
     $sql = "SELECT * FROM fmedicine LIMIT 8";
+
+    $resultset = mysqli_query($link, $sql);
+    mysqli_close($link);
+
+    return $resultset;
+}
+
+function getSearchItemList($searchItem)
+{
+    $link = getConnection();
+    $sql = "SELECT * FROM fmedicine WHERE Name like '%".$searchItem."%'";
 
     $resultset = mysqli_query($link, $sql);
     mysqli_close($link);

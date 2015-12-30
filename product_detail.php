@@ -53,7 +53,11 @@ if (isset($_GET['medicineId'])) {
     </head>
     <body>
 
-    <?php include 'cart_controls.php'; ?>
+    <?php
+    if (isset($_SESSION['customerId'])) {
+        include 'cart_controls.php';
+    }
+    ?>
 
     <div id="wrapper" class="container">
 
@@ -134,7 +138,7 @@ if (isset($_GET['medicineId'])) {
                                                     <div class="product-box">
                                                         <span class="sale_tag"></span>
                                                         <a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>"><img alt=""
-                                                                                          src="themes/images/ladies/6.jpg"></a><br/>
+                                                                                          src="<?php echo './images/products/' . $medicineId.'.jpg' ?>"></a><br/>
                                                         <a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>"
                                                            class="title"><?php echo $item['Name']; ?></a><br/>
                                                         <a class="category"><?php echo $categoryname; ?></a>
