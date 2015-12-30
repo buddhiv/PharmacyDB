@@ -6,7 +6,7 @@
  * Time: 4:59 PM
  */
 
-if(file_exists('../mysql_connector.php')){
+if (file_exists('../mysql_connector.php')) {
     include '../mysql_connector.php';
 }
 if (isset($_POST['remove'])) {
@@ -30,18 +30,19 @@ function isItemInStock($medicineid)
 {
     $link = getConnection();
     $sql = "SELECT Quantity FROM fstock WHERE MedicineId = '" . $medicineid . "'";
-
+    $totalQuantity = 0;
     $resultset = mysqli_query($link, $sql);
-    mysqli_close($link);
 
     $quantity = "OUT OF STOCK";
     if ($resultset != null) {
-        $row = mysqli_fetch_assoc($resultset);
-        if ($row['Quantity'] > 0) {
-            $quantity = "IN STOCK";
+        while ($row = mysqli_fetch_array($resultset)) {
+            $availableQuantity = $row['Quantity'];
+            $totalQuantity += $availableQuantity;
         }
     }
-
+    if ($totalQuantity > 0) {
+        $quantity = "IN STOCK";
+    }
     return $quantity;
 }
 

@@ -99,7 +99,7 @@ if (isset($_GET['medicineId'])) {
                                 <strong>Category:</strong> <span><?php echo $categoryname; ?></span><br>
                                 <strong>Availability:</strong> <span><?php echo $isinstock; ?></span><br>
                             </address>
-                            <h4><strong>Price: <?php echo $medicine['Price']; ?></strong></h4>
+                            <h4><strong>Price: Rs. <?php echo $medicine['Price']; ?></strong></h4>
                         </div>
                         <div class="span5">
                             <form class="form-inline" id="addToCartForm" name="addToCartForm" action="./cart.php" method="POST">
@@ -159,7 +159,7 @@ if (isset($_GET['medicineId'])) {
                                                            class="title"><?php echo $item['Name']; ?></a><br/>
                                                         <a class="category"><?php echo $categoryname; ?></a>
 
-                                                        <p class="price"><?php echo $item['Price']; ?></p>
+                                                        <p class="price">Rs. <?php echo $item['Price']; ?></p>
                                                         <a class="category"><?php echo $isinstock; ?></a>
                                                     </div>
                                                 </li>

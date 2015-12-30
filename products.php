@@ -88,7 +88,7 @@ if (isset($_SESSION["customerId"])) {
                                        class="title"><?php echo $item['Name']; ?></a><br/>
                                     <a class="category"><?php echo $categoryname; ?></a>
 
-                                    <p class="price"><?php echo $item['Price']; ?></p>
+                                    <p class="price">Rs. <?php echo $item['Price']; ?></p>
                                     <a class="category"><?php echo $isinstock; ?></a>
                                 </div>
                             </li>
@@ -144,7 +144,7 @@ if (isset($_SESSION["customerId"])) {
                                        class="title"><?php echo $item['Name']; ?></a><br/>
                                     <a class="category"><?php echo $categoryname; ?></a>
 
-                                    <p class="price"><?php echo $item['Price']; ?></p>
+                                    <p class="price">Rs. <?php echo $item['Price']; ?></p>
                                     <a class="category"><?php echo $isinstock; ?></a>
                                 </div>
                             </li>

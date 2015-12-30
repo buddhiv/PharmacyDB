@@ -70,8 +70,8 @@ if(!isset($_SESSION['admin'])){
                                 <th>Customer ID</th>
                                 <th>Name</th>
                                 <th>Address</th>
-                                <th>Telephone</th>
                                 <th>NIC</th>
+                                <th>Telephone</th>
                                 <th></th>
                             </tr>
                             <tbody>
@@ -150,7 +150,7 @@ if(!isset($_SESSION['admin'])){
                                     <td><?php echo $med['CategoryId']; ?></td>
                                     <td><?php echo $med['SupplierId']; ?></td>
                                     <td><?php echo $med['Name']; ?></td>
-                                    <td><?php echo $med['Price']; ?></td>
+                                    <td>Rs. <?php echo $med['Price']; ?></td>
                                     <form method="POST" action="./php/controller/MedicineController.php"
                                           name="removeMedicine">
                                         <td><input class="btn btn-danger" name="remove" type="submit" value="Remove"></td>
@@ -265,11 +265,12 @@ if(!isset($_SESSION['admin'])){
                         <table class="table table-striped" style="margin-left: 20px">
                             <thead>
                             <tr>
+                                <th>Stock ID</th>
                                 <th>Medicine ID</th>
-                                <th>Category ID</th>
-                                <th>Supplier ID</th>
-                                <th>Name</th>
+                                <th>Remarks</th>
                                 <th>Price</th>
+                                <th>Available Quantity</th>
+                                <th>Date</th>
                             </tr>
                             <tbody>
 
@@ -282,7 +283,7 @@ if(!isset($_SESSION['admin'])){
                                     <td><?php echo $stock['StockId']; ?></td>
                                     <td><?php echo $stock['MedicineId']; ?></td>
                                     <td><?php echo $stock['Remarks']; ?></td>
-                                    <td><?php echo $stock['Price']; ?></td>
+                                    <td>Rs. <?php echo $stock['Price']; ?></td>
                                     <td><?php echo $stock['Quantity']; ?></td>
                                     <td><?php echo $stock['RecievedOn']; ?></td>
 
