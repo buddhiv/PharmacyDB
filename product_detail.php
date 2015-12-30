@@ -53,7 +53,11 @@ if (isset($_GET['medicineId'])) {
     </head>
     <body>
 
-    <?php include 'cart_controls.php'; ?>
+    <?php
+    if (isset($_SESSION['customerId'])) {
+        include 'cart_controls.php';
+    }
+    ?>
 
     <div id="wrapper" class="container">
 
