@@ -3,6 +3,12 @@
 <section class="navbar main-menu">
     <div class="navbar-inner main-menu">
         <a href="index.php" class="logo pull-left"><img src="themes/images/logo.png" class="site_logo" alt=""></a>
+        <div class="span4" style="margin-left: 200px; margin-top: 5px">
+            <form method="POST" class="search_form">
+                <input type="text" class="input-block-level search-query" Placeholder="Search Pharmacy" style="color: darkgray">
+            </form>
+        </div>
+
         <nav id="menu" class="pull-right">
             <ul>
                 <li><a href="index.php">Home</a></li>
@@ -19,7 +25,6 @@
                     echo('<li><a href="login.php">Log in</a></li>');
                 }
                 ?>
-
 
             </ul>
         </nav>
