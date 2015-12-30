@@ -1,5 +1,5 @@
 <?php
-include 'php/mysql_connector.php';
+
 
 include 'php/controller/MedicineController.php';
 include 'php/controller/CategoryController.php';

@@ -43,33 +43,29 @@ if (isset($_SESSION['customerId'])) {
 
     <section class="header_text sub">
         <img class="pageBanner" src="themes/images/pageBanner.png" alt="New products">
-        <h4><span>Contact Us</span></h4>
+        <h4 class="title"><span class="text"><strong>Contact</strong> Us</span></h4>
     </section>
     <section class="main-content">
         <div class="row">
-            <div class="span5">
-                <div>
-                    <h5>ADDITIONAL INFORMATION</h5>
+            <div class="span7 center" style="margin-left: 275px">
+                <?php
+                if (isset($_GET['success'])) {
+                    if ($_GET['success'] == 'true') {
+                        ?>
+                        <h4>Your message was sent successfully</h4>
+                        <?php
+                    } else if ($_GET['success'] == 'false') {
+                        ?>
+                        <h4>Your message failed</h4>
+                        <?php
+                    }
+                }
+                ?>
+                <p>
+                    Contact us 24/7. Our service associates will be happy to assist you further.
+                </p>
 
-                    <p><strong>Phone:</strong>&nbsp;(123) 456-7890<br>
-                        <strong>Fax:</strong>&nbsp;+04 (123) 456-7890<br>
-                        <strong>Email:</strong>&nbsp;<a href="#">vietcuong_it@yahoo.com</a>
-                    </p>
-                    <br/>
-                    <h5>SECONDARY OFFICE IN VIETNAM</h5>
-
-                    <p><strong>Phone:</strong>&nbsp;(113) 023-1125<br>
-                        <strong>Fax:</strong>&nbsp;+04 (113) 023-1145<br>
-                        <strong>Email:</strong>&nbsp;<a href="#">vietcuong_it@yahoo.com</a>
-                    </p>
-                </div>
-            </div>
-            <div class="span7">
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-                    dicta sunt explicabo.</p>
-
-                <form method="post" action="#">
+                <form method="post" action="contact_func.php">
                     <fieldset>
                         <div class="clearfix">
                             <label for="name"><span>Name:</span></label>
@@ -93,7 +89,7 @@ if (isset($_SESSION['customerId'])) {
                             <label for="message"><span>Message:</span></label>
 
                             <div class="input">
-                                <textarea tabindex="3" class="input-xlarge" id="message" name="body" rows="7"
+                                <textarea tabindex="3" class="input-xlarge" id="message" name="message" rows="7"
                                           placeholder="Message"></textarea>
                             </div>
                         </div>

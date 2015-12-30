@@ -153,12 +153,6 @@ if (isset($_SESSION['customerId'])) {
 
         <div class="row">
             <div class="span2">
-                <a href="#"><img alt="" src="themes/images/clients/14.png"></a>
-            </div>
-            <div class="span2">
-                <a href="#"><img alt="" src="themes/images/clients/35.png"></a>
-            </div>
-            <div class="span2">
                 <a href="#"><img alt="" src="themes/images/clients/1.png"></a>
             </div>
             <div class="span2">
@@ -169,6 +163,12 @@ if (isset($_SESSION['customerId'])) {
             </div>
             <div class="span2">
                 <a href="#"><img alt="" src="themes/images/clients/4.png"></a>
+            </div>
+            <div class="span2">
+                <a href="#"><img alt="" src="themes/images/clients/5.png"></a>
+            </div>
+            <div class="span2">
+                <a href="#"><img alt="" src="themes/images/clients/6.png"></a>
             </div>
         </div>
     </section>

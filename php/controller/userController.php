@@ -6,11 +6,14 @@
  * Time: 3:47 PM
  */
 
+
+
 if (isset($_POST["addUser"])) {
     addUser();
 } elseif (isset($_POST["login"])) {
     logIn();
 }
+
 
 if (isset($_POST['remove'])) {
     removeUser($_POST['userId']);
@@ -20,6 +23,7 @@ if (isset($_POST['remove'])) {
 
 function removeUser($userId)
 {
+
     $link = getConnection();
     $sql = "DELETE FROM fcustomer WHERE CustomerId='" . $userId . "'";
 
@@ -104,7 +108,7 @@ function getAllUserDetails()
 
     $resultset = mysqli_query($link, $sql);
     mysqli_close($link);
-
+    $link->close();
     return $resultset;
 }
 
