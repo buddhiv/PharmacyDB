@@ -9,7 +9,6 @@
             <li><a href="adminpanel.php?option=3">Order Information</a></li>
             <li><a href="adminpanel.php?option=4">Stock Information</a></li>
             <li class="nav-header"></li>
-            <li><a href="adminpanel.php?option=5">Settings</a></li>
         </ul>
     </div>
 </div>

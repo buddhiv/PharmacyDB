@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Pharmacy | Log In</title>
+    <title>Pharmacy | My Account</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <!--[if ie]>
@@ -31,15 +31,29 @@
 </head>
 <body>
 
+<?php include 'cart_controls.php' ?>
 
 <div id="wrapper" class="container">
 
     <?php include 'menu.php' ?>
+    <?php
+    include "./php/controller/userController.php";
+
+
+    $resultSet = getUserDetails();
+    $row = mysqli_fetch_assoc($resultSet);
+    $userName = $row['UserName'];
+    $fullName = $row['FullName'];
+    $address = $row['Address'];
+    $nic = $row['NIC'];
+    $telephone = $row['Telephone'];
+    $password = $row['Password'];
+    ?>
 
     <section class="header_text sub">
 
         <img class="pageBanner" src="themes/images/pageBanner.png" alt="New products">
-        <h4 class="title"><span class="text"><strong>Login</strong> Form</span></h4>
+        <h4 class="title"><span class="text"><strong>My</strong> Account </span></h4>
     </section>
 
     <div class="container">
@@ -53,7 +67,7 @@
                             <label class="control-label">User Name</label>
 
                             <div class="controls">
-                                <input type="text" placeholder="User Name" id="username" name="username"
+                                <input type="text" placeholder="User Name" id="username" name="username" value="<?php echo $userName?>"
                                        class="input-xlarge">
                             </div>
                         </div>
@@ -62,7 +76,7 @@
                             <label class="control-label">Full Name</label>
 
                             <div class="controls">
-                                <input type="text" placeholder="Full Name" id="fullname" name="fullname"
+                                <input type="text" placeholder="Full Name" id="fullname" name="fullname" value="<?php echo $fullName?>"
                                        class="input-xlarge">
                             </div>
                         </div>
@@ -71,7 +85,7 @@
                             <label class="control-label">Address</label>
 
                             <div class="controls">
-                                <input type="text" placeholder="Address" id="address" name="address"
+                                <input type="text" placeholder="Address" id="address" name="address" value="<?php echo $address?>"
                                        class="input-xlarge">
                             </div>
                         </div>
@@ -80,7 +94,7 @@
                             <label class="control-label">Telephone</label>
 
                             <div class="controls">
-                                <input type="text" placeholder="Telephone" id="telephone" name="telephone"
+                                <input type="text" placeholder="Telephone" id="telephone" name="telephone" value="<?php echo $telephone?>"
                                        class="input-xlarge">
                             </div>
                         </div>
@@ -89,7 +103,7 @@
                             <label class="control-label">NIC</label>
 
                             <div class="controls">
-                                <input type="text" placeholder="NIC" id="nic" name="nic"
+                                <input type="text" placeholder="NIC" id="nic" name="nic" value="<?php echo $nic?>"
                                        class="input-xlarge">
                             </div>
                         </div>
@@ -98,7 +112,7 @@
                             <label class="control-label">Password</label>
 
                             <div class="controls">
-                                <input type="password" placeholder="Password" id="password" name="password"
+                                <input type="password" placeholder="Password" id="password" name="password" value="<?php echo $password?>"
                                        class="input-xlarge">
                             </div>
                         </div>
@@ -107,18 +121,18 @@
                             <label class="control-label">Retype Password</label>
 
                             <div class="controls">
-                                <input type="password" placeholder="Password" id="retypepassword" name="retypepassword"
+                                <input type="password" placeholder="Password" id="retypepassword" name="retypepassword" value="<?php echo $password?>"
                                        class="input-xlarge">
                             </div>
                         </div>
 
-                        <input type="hidden" name="addUser" value="user" >
+                        <input type="hidden" name="updateUser" value="user" >
 
                         <div class="control-group">
                             <input tabindex="3" class="btn btn-primary" type="submit"
-                                   value="Sign Up">
+                                   value="Update Account">
                             <hr>
-                            <p class="reset"><a tabindex="4" href="login.php">Already have an account?</a></p>
+
                         </div>
                     </fieldset>
                 </form>

@@ -7,9 +7,9 @@
  */
 
 
-if(file_exists('../mysql_connector.php')){
-   include '../mysql_connector.php';
-}elseif(file_exists('./php/mysql_connector.php')){
+if (file_exists('../mysql_connector.php')) {
+    include '../mysql_connector.php';
+} elseif (file_exists('./php/mysql_connector.php')) {
     include './php/mysql_connector.php';
 }
 
@@ -17,6 +17,10 @@ if (isset($_POST["addUser"])) {
     addUser();
 } elseif (isset($_POST["login"])) {
     logIn();
+} elseif (isset($_POST["updateUser"])) {
+    updateUser();
+} elseif (isset($_POST["updateAdmin"])) {
+    updateAdmin();
 }
 
 if (isset($_POST['remove'])) {
@@ -117,4 +121,49 @@ function getAllUserDetails()
     return $resultset;
 }
 
+function getUserDetails()
+{
+    $connection = getConnection();
+
+    $resultSet = mysqli_query($connection, "SELECT * FROM fcustomer WHERE CustomerId='" . $_SESSION['customerId'] . "'");
+
+    return $resultSet;
+
+}
+
+function updateUser()
+{
+    session_start();
+    $userName = preg_replace('#[^A-Za-z0-9]#', '', $_POST["username"]);
+    $fullName = preg_replace('#[^A-Za-z0-9]#', '', $_POST["fullname"]);
+    $address = preg_replace('#[^A-Za-z0-9]#', '', $_POST["address"]);
+    $telephone = preg_replace('#[^A-Za-z0-9]#', '', $_POST["telephone"]);
+    $nic = preg_replace('#[^A-Za-z0-9]#', '', $_POST["nic"]);
+    $password = preg_replace('#[^A-Za-z0-9]#', '', $_POST["password"]);
+
+
+    $connection = getConnection();
+    $sql = "UPDATE fcustomer SET UserName='$userName',FullName='$fullName',Address='$address',NIC='$nic',Telephone='$telephone',Password='$password' WHERE CustomerId='".$_SESSION['customerId']."'";
+    $resultSet = mysqli_query($connection,$sql);
+    $connection->close();
+    header('Location: http://localhost/PharmacyDB/logout.php');
+    header('Location: http://localhost/PharmacyDB/login.php');
+}
+
+
+function updateAdmin()
+{
+    session_start();
+    $password = preg_replace('#[^A-Za-z0-9]#', '', $_POST["password"]);
+
+
+    $connection = getConnection();
+    $sql = "UPDATE fadmin SET PassKey='$password' WHERE UserName='Administrator'";
+    $resultSet = mysqli_query($connection,$sql);
+    $connection->close();
+    header('Location: http://localhost/PharmacyDB/logout.php');
+    header('Location: http://localhost/PharmacyDB/login.php');
+}
+
 ?>
+

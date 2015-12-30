@@ -6,9 +6,8 @@
         <div class="span8">
             <div class="account pull-right">
                 <ul class="user-menu">
-                    <li><a href="#">My Account</a></li>
-                    <li><a href="cart.php">Your Cart</a></li>
-                    <li><a href="checkout.php">Checkout</a></li>
+                    <li><a href="my_account.php">My Account</a></li>
+                    <li><a href="cart.php">My Cart</a></li>
                 </ul>
             </div>
         </div>

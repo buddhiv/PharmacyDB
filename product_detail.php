@@ -5,9 +5,6 @@ include 'php/controller/MedicineController.php';
 include 'php/controller/StockController.php';
 
 
-if(isset($_SESSION['admin'])){
-    header('Location: http://localhost/PharmacyDB/adminpanel.php?option=1');
-}
 
 $categories = getCategoryDetails();
 
@@ -107,7 +104,7 @@ if (isset($_GET['medicineId'])) {
                         <div class="span9">
                             <ul class="nav nav-tabs" id="myTab">
                                 <li class="active"><a href="#remarks">Remarks</a></li>
-                                <li class=""><a href="#information">Additional Information</a></li>
+
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="remarks">
