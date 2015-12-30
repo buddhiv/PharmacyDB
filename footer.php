@@ -15,12 +15,12 @@
         <div class="span5">
             <p class="logo"><img src="themes/images/logo.png" class="site_logo" alt=""></p>
 
-            <p>PharmacyDB is an online pharmac tool that allows you to check and reserve your most needed medicine
+            <p>Pharmacy is an online pharmac tool that allows you to check and reserve your most needed medicine
                 at any time.</p>
             <br/>
         </div>
     </div>
 </section>
 <section id="copyright">
-    <span>Copyright <?php echo date("Y"); ?> PharmacyDB | All right reserved.</span>
+    <span>Copyright <?php echo date("Y"); ?> Pharmacy | All right reserved.</span>
 </section>
