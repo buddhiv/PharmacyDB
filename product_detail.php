@@ -134,7 +134,7 @@ if (isset($_GET['medicineId'])) {
                                                     <div class="product-box">
                                                         <span class="sale_tag"></span>
                                                         <a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>"><img alt=""
-                                                                                          src="themes/images/ladies/6.jpg"></a><br/>
+                                                                                          src="<?php echo './images/products/' . $medicineId.'.jpg' ?>"></a><br/>
                                                         <a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>"
                                                            class="title"><?php echo $item['Name']; ?></a><br/>
                                                         <a class="category"><?php echo $categoryname; ?></a>
