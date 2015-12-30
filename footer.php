@@ -22,5 +22,5 @@
     </div>
 </section>
 <section id="copyright">
-    <span>Copyright <?php echo date("Y");?> PharmacyDB | All right reserved.</span>
+    <span>Copyright <?php echo date("Y"); ?> PharmacyDB | All right reserved.</span>
 </section>

@@ -4,7 +4,7 @@ include 'php/controller/MedicineController.php';
 include 'php/controller/CategoryController.php';
 include 'php/controller/StockController.php';
 
-if(isset($_SESSION['admin'])){
+if (isset($_SESSION['admin'])) {
     header('Location: http://localhost/PharmacyDB/adminpanel.php?option=1');
 }
 
@@ -69,8 +69,8 @@ if (isset($_SESSION['customerId'])) {
         </div>
     </section>
     <section class="header_text">
-        We stand for top quality templates. Our genuine developers always optimized bootstrap commercial templates.
-        <br/>Don't miss to use our cheap abd best bootstrap templates.
+        We have introduced an innovative concept centered on superior customer care,<br/> a wide product assortment and
+        a host of value additions
     </section>
     <section class="main-content">
         <div class="row">
@@ -98,7 +98,7 @@ if (isset($_SESSION['customerId'])) {
 
                                                     <p>
                                                         <a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>"><img
-                                                                src="<?php echo './images/products/' . $medicineId.'.jpg' ?>"
+                                                                src="<?php echo './images/products/' . $medicineId . '.jpg' ?>"
                                                                 alt=""/></a></p>
                                                     <a href="<?php echo 'product_detail.php?medicineId=' . $medicineId ?>"
                                                        class="title"><?php echo $item['Name']; ?></a><br/>
