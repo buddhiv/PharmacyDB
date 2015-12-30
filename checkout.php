@@ -1,4 +1,9 @@
+<?php
+if(isset($_SESSION['admin'])){
+    header('Location: http://localhost/PharmacyDB/adminpanel.php?option=1');
+}
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>

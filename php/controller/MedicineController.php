@@ -7,6 +7,11 @@
  * Time: 1:24 PM
  */
 
+if(file_exists('../mysql_connector.php')){
+    include '../mysql_connector.php';
+}
+
+
 if (isset($_POST['remove'])) {
     removeMedicine($_POST['medicineId']);
 

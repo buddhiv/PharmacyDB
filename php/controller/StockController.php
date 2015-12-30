@@ -6,6 +6,9 @@
  * Time: 4:59 PM
  */
 
+if(file_exists('../mysql_connector.php')){
+    include '../mysql_connector.php';
+}
 if (isset($_POST['remove'])) {
     removeStock($_POST['stockId']);
 

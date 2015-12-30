@@ -1,4 +1,4 @@
-<!--Code for the cart controls-->
+<!--Code for the cart controls and search bar-->
 
 <div id="top-bar" class="container">
     <div class="row">

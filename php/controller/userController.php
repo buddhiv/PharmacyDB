@@ -7,13 +7,15 @@
  */
 
 
+if(file_exists('../mysql_connector.php')){
+   include '../mysql_connector.php';
+}
 
 if (isset($_POST["addUser"])) {
     addUser();
 } elseif (isset($_POST["login"])) {
     logIn();
 }
-
 
 if (isset($_POST['remove'])) {
     removeUser($_POST['userId']);
@@ -28,7 +30,7 @@ function removeUser($userId)
     $sql = "DELETE FROM fcustomer WHERE CustomerId='" . $userId . "'";
 
     $resultset = mysqli_query($link, $sql);
-    mysqli_close($link);
+    $link->close();
 
     return $resultset;
 }
@@ -63,7 +65,6 @@ function addUser()
 function logIn()
 {
     session_start();
-    include '../mysql_connector.php';
     $userName = preg_replace('#[^A-Za-z0-9]#', '', $_POST["username"]);
     $password = preg_replace('#[^A-Za-z0-9]#', '', $_POST["password"]);
 
@@ -90,7 +91,9 @@ function logIn()
         $resultset = mysqli_query($connection, $sql);
         $row = mysqli_fetch_assoc($resultset);
 
+
         if ($row['PassKey'] == $password) {
+            $_SESSION["admin"] = "admin";
             header('Location: http://localhost/PharmacyDB/adminpanel.php');
         } else {
             header('Location: http://localhost/PharmacyDB/login.php?attempt=1');
@@ -103,12 +106,15 @@ function logIn()
 
 function getAllUserDetails()
 {
-    $link = getConnection();
+    $connection = getConnection();
     $sql = "SELECT * FROM fcustomer";
 
     $resultset = mysqli_query($link, $sql);
     mysqli_close($link);
     $link->close();
+    $resultset = mysqli_query($connection, $sql);
+    $connection->close();
+
     return $resultset;
 }
 
