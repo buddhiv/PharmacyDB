@@ -1,5 +1,4 @@
 <?php
-include 'php/mysql_connector.php';
 
 include 'php/controller/MedicineController.php';
 include 'php/controller/CategoryController.php';
@@ -71,10 +70,10 @@ include 'php/controller/CustomerOrderController.php';
                     <tbody>
 
                     <?php
-                    if(isset($_GET['orderId'])){
-                        $results = showOrderDetails($_GET['orderId']);
-
+                    if(isset($_POST['detail'])){
+                        $results = showOrderDetails($_POST['orderId']);
                     }
+
 
                     foreach ($results as $result) {
                         ?>

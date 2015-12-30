@@ -9,6 +9,8 @@
 
 if(file_exists('../mysql_connector.php')){
    include '../mysql_connector.php';
+}elseif(file_exists('./php/mysql_connector.php')){
+    include './php/mysql_connector.php';
 }
 
 if (isset($_POST["addUser"])) {
@@ -109,9 +111,6 @@ function getAllUserDetails()
     $connection = getConnection();
     $sql = "SELECT * FROM fcustomer";
 
-    $resultset = mysqli_query($link, $sql);
-    mysqli_close($link);
-    $link->close();
     $resultset = mysqli_query($connection, $sql);
     $connection->close();
 

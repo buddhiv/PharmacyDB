@@ -11,6 +11,7 @@ if(!isset($_SESSION['admin'])){
     header('Location: http://localhost/PharmacyDB/index.php');
 }
 
+
 ?>
 
 <!DOCTYPE html>
@@ -213,7 +214,7 @@ if(!isset($_SESSION['admin'])){
                                     <td><?php echo $order['CustomerId']; ?></td>
                                     <td><?php echo $order['Date']; ?></td>
                                     <td><?php echo ("Rs. ". $order['Amount']) ?></td>
-                                    <form method="POST" action="./php/controller/CustomerOrderController.php"
+                                    <form method="POST" action="./admin_viewOrderDetails.php"
                                           name="removeDetail">
                                         <td><input class="btn btn-info" name="detail" type="submit" value="Detail"></td>
 

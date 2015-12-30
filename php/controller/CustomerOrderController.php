@@ -5,9 +5,8 @@
  * Date: 12/29/15
  * Time: 6:46 PM
  */
-if (file_exists('../mysql_connector.php')) {
-    include '../mysql_connector.php';
-}
+
+
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -19,8 +18,6 @@ if (isset($_POST['addOrder'])) {
     removeOrder($_POST['orderId']);
 
     header('Location: http://localhost/PharmacyDB/adminpanel.php?option=3');
-} elseif (isset($_POST['detail'])) {
-    header('Location: http://localhost/PharmacyDB/admin_viewOrderDetails.php?orderId='.$_POST['orderId']);
 }
 
 
@@ -102,6 +99,11 @@ function getAllOrderDetails()
 
 function removeOrder($orderId)
 {
+    if (file_exists('../mysql_connector.php')) {
+        require '../mysql_connector.php';
+    } elseif (file_exists('./php/mysql_connector.php')) {
+        require './php/mysql_connector.php';
+    }
     $link = getConnection();
     $sql = "DELETE FROM fcustomerorder WHERE CustomerOrderId='" . $orderId . "'";
 
