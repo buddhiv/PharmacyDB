@@ -4,6 +4,9 @@ include 'php/controller/MedicineController.php';
 include 'php/controller/CategoryController.php';
 include 'php/controller/StockController.php';
 
+if(isset($_SESSION['admin'])){
+    header('Location: http://localhost/PharmacyDB/adminpanel.php?option=1');
+}
 $categories = getCategoryDetails();
 
 ?>

@@ -5,7 +5,12 @@ include 'php/controller/MedicineController.php';
 include 'php/controller/CategoryController.php';
 include 'php/controller/StockController.php';
 include 'php/controller/UserController.php';
-include 'php/controller/OrderController.php';
+include 'php/controller/CustomerOrderController.php';
+
+if(!isset($_SESSION['admin'])){
+    header('Location: http://localhost/PharmacyDB/index.php');
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -38,18 +43,10 @@ include 'php/controller/OrderController.php';
 </head>
 <body>
 
-<?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-if (isset($_SESSION["customerId"])) {
-    include 'cart_controls.php';
-}
-?>
 
 <div id="wrapper" class="container">
 
-    <?php include 'menu.php'; ?>
+    <?php include 'admin_menu.php'; ?>
 
     <section class="header_text sub">
         <img class="pageBanner" src="themes/images/pageBanner.png" alt="New products">
@@ -198,12 +195,11 @@ if (isset($_SESSION["customerId"])) {
                             <thead>
                             <tr>
                                 <th>Order ID</th>
-                                <th>Supplier ID</th>
-                                <th>Medicine ID</th>
-                                <th>Quantity</th>
-                                <th>Sent</th>
-                                <th>Actual Cost</th>
-                                <th>Count per Unit</th>
+                                <th>Customer ID</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Detail</th>
+                                <th></th>
                             </tr>
                             <tbody>
 
@@ -213,18 +209,22 @@ if (isset($_SESSION["customerId"])) {
                             foreach ($orders as $order) {
                                 ?>
                                 <tr>
-                                    <td><?php echo $order['OrderId']; ?></td>
-                                    <td><?php echo $order['SupplierId']; ?></td>
-                                    <td><?php echo $order['MedicineId']; ?></td>
-                                    <td><?php echo $order['Quantity']; ?></td>
-                                    <td><?php echo $order['Sent']; ?></td>
-                                    <td><?php echo $order['ActualCost']; ?></td>
-                                    <td><?php echo $order['CountPerUnit']; ?></td>
-                                    <form method="POST" action="./php/controller/OrderController.php"
+                                    <td><?php echo $order['CustomerOrderId']; ?></td>
+                                    <td><?php echo $order['CustomerId']; ?></td>
+                                    <td><?php echo $order['Date']; ?></td>
+                                    <td><?php echo ("Rs. ". $order['Amount']) ?></td>
+                                    <form method="POST" action="./php/controller/CustomerOrderController.php"
+                                          name="removeDetail">
+                                        <td><input class="btn btn-info" name="detail" type="submit" value="Detail"></td>
+
+                                        <input name="orderId" type="hidden" value="<?php echo $order['CustomerOrderId']; ?>" />
+                                    </form>
+
+                                    <form method="POST" action="./php/controller/CustomerOrderController.php"
                                           name="removeOrder">
                                         <td><input class="btn btn-danger" name="remove" type="submit" value="Remove"></td>
 
-                                        <input name="orderId" type="hidden" value="<?php echo $order['OrderId']; ?>" />
+                                        <input name="orderId" type="hidden" value="<?php echo $order['CustomerOrderId']; ?>" />
                                     </form>
                                 </tr>
                                 <?php

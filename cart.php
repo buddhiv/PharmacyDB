@@ -3,10 +3,15 @@
 
 //$categories = getCategoryDetails();
 
+
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-if (!isset($_SESSION['customerId'])) {
+
+if(isset($_SESSION['admin'])){
+    header('Location: http://localhost/PharmacyDB/adminpanel.php?option=1');
+}elseif (!isset($_SESSION['customerId'])) {
     header('Location: http://localhost/PharmacyDB/login.php');
 }
 
