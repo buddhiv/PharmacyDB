@@ -4,8 +4,8 @@
     <div class="navbar-inner main-menu">
         <a href="index.php" class="logo pull-left"><img src="themes/images/logo.png" class="site_logo" alt=""></a>
         <div class="span4" style="margin-left: 200px; margin-top: 5px">
-            <form method="POST" class="search_form">
-                <input type="text" class="input-block-level search-query" Placeholder="Search Pharmacy" style="color: darkgray">
+            <form method="POST" class="search_form" action="searchproduct.php">
+                <input type="text" name="searchItem" class="input-block-level search-query" Placeholder="Search Pharmacy" style="color: darkgray">
             </form>
         </div>
 
